@@ -11,8 +11,10 @@ import { MediaObserver } from '@angular/flex-layout';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
-
   userName = '';
+  menus = [
+    {icon: 'add', title: 'Create Campaign', path:''},
+  ];
   constructor(private router: Router, public media: MediaObserver) {}
 
   ngOnInit() {
