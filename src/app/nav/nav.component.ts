@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { MediaObserver } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-nav',
@@ -10,12 +12,16 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class NavComponent {
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  userName = '';
+  constructor(private router: Router, public media: MediaObserver) {}
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  ngOnInit() {
+    this.userName = localStorage.getItem('userName');
+  }
+
+  onLogout() {
+    localStorage.clear();
+    this.router.navigate(['/welcome']);
+  }
 
 }

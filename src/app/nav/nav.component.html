@@ -1,27 +1,44 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+<mat-sidenav-container class="all-wrap">
+  <mat-sidenav #sidenav over>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item (click)="onLogout()"
+        ><mat-icon>logout</mat-icon> Logout</a
+      >
+      <a (click)="sidenav.toggle()" mat-list-item>
+        <mat-icon>close</mat-icon> Close
+      </a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>crowdfunding</span>
+  <mat-sidenav-content class="page-wrap">
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <button
+          mat-icon-button
+          (click)="sidenav.toggle()"
+          *ngIf="media.isActive('lt-md')"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <h1>ትብብር center</h1>
+        <span class="example-spacer"></span>
+
+        <div *ngIf="!media.isActive('lt-md')">
+          <a mat-button (click)="onLogout()" id="logout">
+            <mat-icon>logout</mat-icon>
+            Logout
+          </a>
+        </div>
+        <a mat-button>
+          <mat-icon>account_circle</mat-icon>
+          {{ userName }}
+        </a>
+      </mat-toolbar-row>
     </mat-toolbar>
-    <!-- Add Content Here -->
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+    <footer>
+      Crowdfunding platform
+    </footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
