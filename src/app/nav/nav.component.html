@@ -23,15 +23,15 @@
         <span class="example-spacer"></span>
 
         <div *ngIf="!media.isActive('lt-md')">
-          <a mat-button (click)="onLogout()" id="logout">
+          <button mat-button (click)="onLogout()" id="logout">
             <mat-icon>logout</mat-icon>
             Logout
-          </a>
+          </button>
         </div>
-        <a mat-button>
+        <button mat-button>
           <mat-icon>account_circle</mat-icon>
           {{ userName }}
-        </a>
+        </button>
       </mat-toolbar-row>
     </mat-toolbar>
     <main class="content">

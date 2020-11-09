@@ -1,5 +1,5 @@
-<div class="grid-container">
-  <div class="row container">
+<div class="container mt-3">
+  <div class="row">
     <h1 class="mat-h1">Dashboard</h1>
     <div class="ml-3">
       <button style="color: white; background-color: #7dc243;" mat-raised-button>
@@ -8,25 +8,61 @@
       </button>
     </div>
   </div>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+  <div class="row">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              My Campaigns
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="row">
+              <div class="col-4 mt-2" *ngFor="let item of items">
+                <mat-card id="header-card">
+                  <div class="row">
+                    <button mat-button class="col">Status</button>
+                    <button mat-button class="col">Open</button>
+                  </div>
+                </mat-card>
+                <mat-card>
+                  <img mat-card-image height="200px" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                  <mat-card-header>
+                    <div class="row">
+                      <button mat-button class="col">Status</button>
+                      <button mat-button class="col">Open</button>
+                    </div>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <p>
+                      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from
+                      Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu
+                      was originally bred for hunting.
+                    </p>
+                    <div class="row">
+                      <div class="col-10">
+                        <mat-progress-bar style="height: 20px;" mode="determinate" value="40"></mat-progress-bar>
+                      </div>
+                      <div class="col">
+                        40%
+                      </div>
+                    </div>
+                    <div class="row container">
+                      <span style="font-weight: bold;">11,000 Birr </span>&nbsp;<span>raised of 20,000</span>
+                    </div>
+                    <div class="row float-right mr-3">
+                      <span>Charity</span>
+                    </div>
+                  </mat-card-content>
+                  <mat-card-footer id="header-card">
+                    <div class="row">
+                      <button mat-button class="col">End Date</button>
+                      <button mat-button class="col">{{date|date}}</button>
+                    </div>
+                  </mat-card-footer>
+                </mat-card>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+  </div>
 </div>

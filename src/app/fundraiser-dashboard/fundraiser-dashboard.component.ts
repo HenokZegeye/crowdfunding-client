@@ -8,26 +8,29 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
   styleUrls: ['./fundraiser-dashboard.component.scss']
 })
 export class FundraiserDashboardComponent {
+  date = Date.now();
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
+          { title: 'Welcome' },
         ];
       }
 
       return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
+        { title: 'Welcome' },
       ];
     })
   );
+
+  items = [
+    {title: 'Card1'},
+    {title: 'Card2'},
+    {title: 'Card3'},
+    {title: 'Card4'},
+    {title: 'Card5'}
+  ];
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 }
