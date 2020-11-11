@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { CampaignRoutingModule } from './campaign-routing.module';
 import { CampaignEditorComponent } from './components/container/campaign-editor/campaign-editor.component';
 import { FundraiserDashboardComponent } from './components/container/fundraiser-dashboard/fundraiser-dashboard.component';
-import {TabViewModule} from 'primeng/tabview';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
+
 import { SharedModule } from '../shared/shared.module';
+import { MdComponentsModule } from '../md-components/md-components.module';
+import { PComponentsModule } from '../p-components/p-components.module';
 
 
 @NgModule({
@@ -17,10 +17,9 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     CampaignRoutingModule,
-    TabViewModule,
-    MatCardModule,
-    MatIconModule,
-    SharedModule
+    SharedModule,
+    MdComponentsModule,
+    PComponentsModule
   ]
 })
 export class CampaignModule { }

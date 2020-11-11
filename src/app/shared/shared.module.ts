@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CampaignCardComponent } from './components/campaign-card/campaign-card.component';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatCardModule } from '@angular/material/card';
+import { MdComponentsModule } from '../md-components/md-components.module';
 
 
 
@@ -13,8 +12,7 @@ import { MatCardModule } from '@angular/material/card';
   ],
   imports: [
     CommonModule,
-    MatProgressBarModule,
-    MatCardModule
+    MdComponentsModule
   ]
 })
 export class SharedModule { }
