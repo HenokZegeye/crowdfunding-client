@@ -1,1 +1,35 @@
-<p>campaign-card works!</p>
+<mat-card id="header-card">
+  <div class="row">
+    <button mat-button class="col">Status</button>
+    <button mat-button class="col">{{campaign.status}}</button>
+  </div>
+</mat-card>
+<mat-card>
+  <img mat-card-image height="200px" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    {{campaign.title}}
+    <p>
+      {{campaign.description}}
+    </p>
+    <div class="row">
+      <div class="col-10">
+        <mat-progress-bar style="height: 20px;" mode="determinate" [value]="campaign.progress_percentage"></mat-progress-bar>
+      </div>
+      <div class="col">
+        {{campaign.progress_percentage}}
+      </div>
+    </div>
+    <div class="row container">
+      <span style="font-weight: bold;">{{campaign.current_donation_amount}} </span>&nbsp;<span>raised of {{campaign.goal}}</span>
+    </div>
+    <div class="row float-right mr-3">
+      <span>{{campaign.category}}</span>
+    </div>
+  </mat-card-content>
+  <mat-card-footer id="header-card">
+    <div class="row">
+      <button mat-button class="col">End Date</button>
+      <button mat-button class="col">{{campaign.end_date|date}}</button>
+    </div>
+  </mat-card-footer>
+</mat-card>

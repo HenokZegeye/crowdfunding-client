@@ -24,7 +24,7 @@ export class FundraiserDashboardComponent {
     })
   );
 
-  items = [
+  campaigns = [
     {title: 'Card1'},
     {title: 'Card2'},
     {title: 'Card3'},

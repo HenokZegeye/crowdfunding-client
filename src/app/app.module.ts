@@ -11,7 +11,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { FundraiserDashboardComponent } from './fundraiser-dashboard/fundraiser-dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
@@ -21,7 +20,6 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
   declarations: [
     AppComponent,
     NavComponent,
-    FundraiserDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +32,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatIconModule,
     MatListModule,
     MatGridListModule,
-    MatCardModule,
     MatMenuModule,
-    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
