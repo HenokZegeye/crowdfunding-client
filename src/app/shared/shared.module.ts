@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CampaignCardComponent } from './components/campaign-card/campaign-card.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [CampaignCardComponent],
   imports: [
     CommonModule
   ]
