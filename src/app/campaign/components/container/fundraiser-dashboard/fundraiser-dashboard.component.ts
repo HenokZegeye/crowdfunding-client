@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { MatDialog } from '@angular/material/dialog';
+import { CampaignFormComponent } from '../../ui/campaign-form/campaign-form.component';
+import { DialogConfig } from 'src/app/shared/models/dialog-config.model';
+import { DialogService } from 'src/app/shared/services/dialog.service';
 
 @Component({
   selector: 'app-fundraiser-dashboard',
@@ -32,5 +36,20 @@ export class FundraiserDashboardComponent {
     {title: 'Card5'}
   ];
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  dialogConfig: DialogConfig = {
+    width: '500px',
+    formComponent: CampaignFormComponent,
+    dialog: this.dialog,
+    parentComponent: this
+  } as DialogConfig;
+
+  constructor(private breakpointObserver: BreakpointObserver,
+              private dialog: MatDialog) {}
+
+
+  onCreateCampaign() {
+    this.dialogConfig.title = 'Add New Campaign';
+    this.dialogConfig.formData = {};
+    DialogService.handleDialog(this.dialogConfig);
+  }
 }
