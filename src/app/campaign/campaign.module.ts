@@ -7,12 +7,14 @@ import { FundraiserDashboardComponent } from './components/container/fundraiser-
 import { SharedModule } from '../shared/shared.module';
 import { MdComponentsModule } from '../md-components/md-components.module';
 import { PComponentsModule } from '../p-components/p-components.module';
+import { CampaignFormComponent } from './components/ui/campaign-form/campaign-form.component';
 
 
 @NgModule({
   declarations: [
     CampaignEditorComponent,
-    FundraiserDashboardComponent
+    FundraiserDashboardComponent,
+    CampaignFormComponent
   ],
   imports: [
     CommonModule,
