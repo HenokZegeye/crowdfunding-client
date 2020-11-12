@@ -37,7 +37,7 @@ export class FundraiserDashboardComponent {
   ];
 
   dialogConfig: DialogConfig = {
-    width: '500px',
+    width: '800px',
     formComponent: CampaignFormComponent,
     dialog: this.dialog,
     parentComponent: this
