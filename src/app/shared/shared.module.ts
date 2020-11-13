@@ -12,13 +12,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
   declarations: [
     CampaignCardComponent,
     NavComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   exports: [
     CampaignCardComponent
