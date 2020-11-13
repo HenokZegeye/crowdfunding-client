@@ -1,0 +1,24 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button
+      mat-icon-button
+      (click)="sidenav.toggle()"
+      *ngIf="media.isActive('lt-md')"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1>ትብብር center</h1>
+    <span class="example-spacer"></span>
+
+    <div *ngIf="!media.isActive('lt-md')">
+      <button mat-button (click)="onLogout()" id="logout">
+        <mat-icon>logout</mat-icon>
+        Logout
+      </button>
+    </div>
+    <button mat-button>
+      <mat-icon>account_circle</mat-icon>
+      {{ userName }}
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

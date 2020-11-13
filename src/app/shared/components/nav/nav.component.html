@@ -1,0 +1,21 @@
+<mat-sidenav-container class="all-wrap">
+  <mat-sidenav #sidenav over>
+    <mat-nav-list>
+      <a mat-list-item (click)="onLogout()"
+        ><mat-icon>logout</mat-icon> Logout</a
+      >
+      <a (click)="sidenav.toggle()" mat-list-item>
+        <mat-icon>close</mat-icon> Close
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="page-wrap">
+    <app-header [sidenav]="sidenav"></app-header>
+    <main class="content">
+      <!-- <router-outlet></router-outlet> -->
+    </main>
+    <footer>
+      Crowdfunding platform
+    </footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
