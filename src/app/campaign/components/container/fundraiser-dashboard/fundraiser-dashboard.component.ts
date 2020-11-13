@@ -13,4 +13,5 @@ export class FundraiserDashboardComponent {
     {title: 'Card4'},
     {title: 'Card5'}
   ];
+
 }

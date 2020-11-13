@@ -1,3 +1,15 @@
-<app-header></app-header>
-<app-campaigns [campaigns]="campaigns"></app-campaigns>
-<app-footer></app-footer>
+<div class="main-container">
+  <!-- <div class="main-header">
+    <app-header></app-header>
+  </div> -->
+  <app-sidebar></app-sidebar>
+  <div id="main-content container-fluid col-md-12 ">
+    <div class="main-content">
+      <div class="sidebar-menu-content">
+        <app-campaigns [campaigns]="campaigns"></app-campaigns>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+

@@ -13,8 +13,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-
+import { CustomSidebarComponent } from './components/sidebar/sidebar.component';
+import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
 
 @NgModule({
   declarations: [
@@ -22,13 +22,14 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     NavComponent,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    CustomSidebarComponent
   ],
   exports: [
     CampaignCardComponent,
     NavComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CustomSidebarComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +41,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     MatIconModule,
     MatListModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    SidebarModule,
   ]
 })
 export class SharedModule { }
