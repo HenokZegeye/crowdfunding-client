@@ -58,6 +58,9 @@ export class CampaignFormComponent implements OnInit {
         },
         story: {
           required: 'Story is required.'
+        },
+        end_date: {
+          required: 'End date is required.'
         }
       };
 
