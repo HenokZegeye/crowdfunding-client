@@ -37,6 +37,7 @@
 
       <mat-form-field class="full-width">
         <textarea matInput placeholder="Story" formControlName="story"></textarea>
+        <mat-error *ngIf="displayMessage.story">{{displayMessage.story}}</mat-error>
       </mat-form-field>
 
       <fieldset>

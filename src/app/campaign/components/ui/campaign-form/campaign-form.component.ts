@@ -56,7 +56,9 @@ export class CampaignFormComponent implements OnInit {
         city: {
           required: 'City is required.'
         },
-
+        story: {
+          required: 'Story is required.'
+        }
       };
 
     this.genericValidator = new GenericValidator(this.validationMessages);
