@@ -23,7 +23,10 @@ import { FooterComponent } from './components/footer/footer.component';
     FooterComponent
   ],
   exports: [
-    CampaignCardComponent
+    CampaignCardComponent,
+    NavComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,

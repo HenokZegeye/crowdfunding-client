@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./fundraiser-dashboard.component.scss']
 })
 export class FundraiserDashboardComponent {
-
+  campaigns = [
+    {title: 'Card1'},
+    {title: 'Card2'},
+    {title: 'Card3'},
+    {title: 'Card4'},
+    {title: 'Card5'}
+  ];
 }

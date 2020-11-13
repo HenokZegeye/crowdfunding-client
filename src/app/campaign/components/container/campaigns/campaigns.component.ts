@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { map } from 'rxjs/operators';
 import { DialogConfig } from 'src/app/shared/models/dialog-config.model';
@@ -28,13 +28,7 @@ export class CampaignsComponent implements OnInit {
     })
   );
 
-  campaigns = [
-    {title: 'Card1'},
-    {title: 'Card2'},
-    {title: 'Card3'},
-    {title: 'Card4'},
-    {title: 'Card5'}
-  ];
+ @Input() campaigns;
 
   dialogConfig: DialogConfig = {
     width: '800px',
