@@ -26,13 +26,14 @@ export class DialogService {
           }
         }, (_) => options.parentComponent.blockUI.stop());
       } else {
-        options.parentComponent.blockUI.start('Saving...');
+        /* options.parentComponent.blockUI.start('Saving...'); */
         options.service.add(data).subscribe((result: any) => {
-          options.parentComponent.blockUI.stop();
-          if (result.success) {
+          dialogRef.close();
+          /* options.parentComponent.blockUI.stop(); */
+          /* if (result.success) {
             dialogRef.close();
-          }
-        }, (_) => options.parentComponent.blockUI.stop());
+          } */
+        }, (_) => dialogRef.close());
       }
     });
     const closeSub = (dialogRef.componentInstance as any).formClose.subscribe(() => dialogRef.close());

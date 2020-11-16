@@ -30,7 +30,8 @@ export class CampaignsComponent implements OnInit {
     width: '800px',
     formComponent: CampaignFormComponent,
     dialog: this.dialog,
-    parentComponent: this
+    parentComponent: this,
+    service: this.service
   } as DialogConfig;
 
   constructor(private dialog: MatDialog,

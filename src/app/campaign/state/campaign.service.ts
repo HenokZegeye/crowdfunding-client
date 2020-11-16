@@ -31,7 +31,7 @@ export class CampaignService {
 
   add(campaign) {
     const url = `${environment.apiUrl}/campaigns`;
-    return this.http.post(url, { campaign })
+    return this.http.post(url, campaign)
       .pipe(
         tap((result: any) => {
           if (result.success) {
