@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'campaign', loadChildren: () => import('./campaign/campaign.module').then(m => m.CampaignModule)},
+  { path: 'main', loadChildren: () => import('./main/main.module').then(m => m.MainModule)},
 ];
 
 @NgModule({

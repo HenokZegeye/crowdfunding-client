@@ -1147,6 +1147,17 @@
     rxjs-compat "^6.5.4"
     zone.js "^0.10.2"
 
+"@syncfusion/ej2-angular-lists@^18.3.47":
+  version "18.3.47"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-angular-lists/-/ej2-angular-lists-18.3.47.tgz#77951dcfb6a04f2c5c3681e4584a5073322473c9"
+  integrity sha512-6dGX9iRsdhAznUBoGDYCgWJekltsKH3PTyx0ZTh75Hyuk40h5M/coKKVdtj/vVKA1Sg0Yw+PVUVCx1ICqedTcw==
+  dependencies:
+    "@syncfusion/ej2-angular-base" "~18.3.47"
+    "@syncfusion/ej2-base" "~18.3.47"
+    "@syncfusion/ej2-lists" "18.3.47"
+    "@types/lodash" "4.14.159"
+    "@types/node" "11.15.20"
+
 "@syncfusion/ej2-angular-navigations@^18.3.47":
   version "18.3.47"
   resolved "https://registry.yarnpkg.com/@syncfusion/ej2-angular-navigations/-/ej2-angular-navigations-18.3.47.tgz#a516dcc7933efe6e69e968c3bb2e41272f5539e4"
@@ -1194,7 +1205,7 @@
     "@syncfusion/ej2-popups" "~18.3.47"
     "@syncfusion/ej2-splitbuttons" "~18.3.48"
 
-"@syncfusion/ej2-lists@~18.3.47":
+"@syncfusion/ej2-lists@18.3.47", "@syncfusion/ej2-lists@~18.3.47":
   version "18.3.47"
   resolved "https://registry.yarnpkg.com/@syncfusion/ej2-lists/-/ej2-lists-18.3.47.tgz#0a88180edb8680a857c257f99348c47c4cddab46"
   integrity sha512-1fZ9ApsyFFRHLIqZyQ6sWCOFbFLNnRxfaoT81jfA1cQdGdiCuA6B5Q4FLXEnZ6/QZMkgfrWr7VxDP8QNkud0pA==

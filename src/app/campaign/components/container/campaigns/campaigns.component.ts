@@ -28,7 +28,17 @@ export class CampaignsComponent implements OnInit {
     })
   );
 
- @Input() campaigns;
+  campaigns = [
+    {title: 'Card1'},
+    {title: 'Card2'},
+    {title: 'Card3'},
+    {title: 'Card4'},
+    {title: 'Card5'},
+    {title: 'Card6'},
+    {title: 'Card7'},
+    {title: 'Card8'},
+    {title: 'Card9'},
+  ];
 
   dialogConfig: DialogConfig = {
     width: '800px',
