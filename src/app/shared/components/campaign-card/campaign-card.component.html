@@ -1,18 +1,21 @@
-<div (click)="onCampaignClick(campaign)">
+<div (click)="onCampaignClick(campaign)" style="cursor: pointer;">
   <mat-card id="header-card">
     <div class="row">
       <p class="col">Status</p>
-      <p class="col">Open</p>
+      <p class="col">{{campaign.campaign_approval?.statusType}}</p>
     </div>
   </mat-card>
   <mat-card>
     <img mat-card-image height="200px" src="https://insidearabia.com/wp-content/uploads/2020/05/IMG_2393-1280x640.jpg"
       alt="Photo of a Shiba Inu">
     <mat-card-content>
-      {{campaign.title}}
+      {{campaign.campaign_title}}
       <p>
-        {{campaign.description}}
+        {{campaign.campaign_tagline}}
       </p>
+      <div class="row container">
+        {{campaign.campaign_story}}
+      </div>
       <div class="row">
         <div class="col-10">
           <mat-progress-bar style="height: 20px;" mode="determinate" [value]="campaign.progress_percentage">
@@ -23,17 +26,17 @@
         </div>
       </div>
       <div class="row container">
-        <span style="font-weight: bold;">{{campaign.current_donation_amount}} </span>&nbsp;<span>raised of
-          {{campaign.goal}}</span>
+        <span style="font-weight: bold;">{{campaign.campaign_fundRecord?.totalDonation}} </span>&nbsp;<span>raised of
+          {{campaign.campaign_fundGoal}}</span>
       </div>
       <div class="row float-right mr-3">
-        <span>{{campaign.category}}</span>
+        <span>{{campaign.campaign_category}}</span>
       </div>
     </mat-card-content>
     <mat-card-footer id="header-card">
       <div class="row container p-3">
         <p class="col">End Date</p>
-        <p class="col">{{year|date}}</p>
+        <p class="col">{{campaign.campaign_endingDate|date}}</p>
       </div>
     </mat-card-footer>
   </mat-card>

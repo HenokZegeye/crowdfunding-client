@@ -4,6 +4,7 @@ import { DialogConfig } from 'src/app/shared/models/dialog-config.model';
 import { DialogService } from 'src/app/shared/services/dialog.service';
 import { CampaignFormComponent } from '../../ui/campaign-form/campaign-form.component';
 import { CampaignService } from '../../../state/campaign.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-campaigns',
@@ -33,11 +34,12 @@ export class CampaignsComponent implements OnInit {
   } as DialogConfig;
 
   constructor(private dialog: MatDialog,
-    private service: CampaignService) { }
+    private service: CampaignService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.service.get().subscribe((res) => {
-      this.campaigns = res.data;
+      this.campaigns = res;
     });
   }
 
@@ -48,6 +50,6 @@ export class CampaignsComponent implements OnInit {
   }
 
   onCampaignDetail(campaign) {
-    console.log(campaign);
+    this.router.navigate(['/main/campaign/status']);
   }
 }

@@ -11,17 +11,18 @@ export class CampaignService {
 
 
   get() {
-    const url = `${environment.apiUrl}/courses`;
+    const url = `${environment.apiUrl}/campaigns`;
     return this.http.get<any[]>(url)
       .pipe(
         tap((result: any) => {
-          if (result.success) {
+          console.log('Successfully loaded');
+          /* if (result.success) {
             console.log('Successfully loaded');
           } else {
             const errors = result.errors;
             const errorMessage = errors.join();
             console.log('Error');
-          }
+          } */
         }, error => {
           console.log('Error');
         })
@@ -29,7 +30,7 @@ export class CampaignService {
   }
 
   add(campaign) {
-    const url = `${environment.apiUrl}/courses`;
+    const url = `${environment.apiUrl}/campaigns`;
     return this.http.post(url, { campaign })
       .pipe(
         tap((result: any) => {
@@ -49,7 +50,7 @@ export class CampaignService {
   }
 
   update(id, campaign: Partial<any>) {
-    const url = `${environment.apiUrl}/courses/${id}`;
+    const url = `${environment.apiUrl}/campaigns/${id}`;
     return this.http.put(url, { course: campaign })
       .pipe(
         tap((result: any) => {
