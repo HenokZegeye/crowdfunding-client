@@ -42,9 +42,12 @@
 .dock-menu.e-menu-wrapper,
 .dock-menu.e-menu-wrapper ul > *,
 .dock-menu .e-menu-wrapper ul > * {
-  background-color: #2d323e !important;
-  color: #eff2f7 !important;
-  overflow: hidden;
+  background-color: #253246 !important;
+  color: #1d4c9c !important;
+}
+
+.e-anchor-wrap {
+  color: white !important;
 }
 
 .e-menu-wrapper ul .e-menu-item .e-menu-icon, .e-menu-container ul .e-menu-item .e-menu-icon{

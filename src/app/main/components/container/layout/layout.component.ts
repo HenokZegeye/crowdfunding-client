@@ -10,8 +10,8 @@ import { MenuEventArgs, SidebarComponent } from '@syncfusion/ej2-angular-navigat
 export class LayoutComponent implements OnInit {
   @ViewChild('sidebarMenuInstance') sidebarMenuInstance: SidebarComponent;
   menus = [
-    { text: 'Campaign Status', iconCss: 'e-icons e-campaign-status', },
-    { text: 'Campaign Editor', iconCss: 'e-icons e-edit', url: '/main/campaign/campaign-editor' },
+    { text: 'Campaign Status', iconCss: 'e-icons e-campaign-status', url: '/main/campaign/status' },
+    { text: 'Campaign Editor', iconCss: 'e-icons e-edit', url: '/main/campaign/editor' },
   ];
 
   constructor(private router: Router,
