@@ -1,34 +1,19 @@
 <div class="main-container">
-  <app-header [username]="'Abebe'"
-              [title]="'Tibibir Center'"
-              (toggle)="onToggle()"
-              (logout)="onLogout()">
+  <app-header [username]="'Abebe'" [title]="'Tibibir Center'" (toggle)="onToggle()" (logout)="onLogout()">
   </app-header>
-  <ejs-sidebar #sidebarMenuInstance
-               id="sidebar-menu"
-               class="dock-menu"
-               [enableDock]="true"
-               [width]="'220px'"
-               [dockSize]="'50px'"
-               [mediaQuery]="('(min-width: 600px)')"
-               [target]="'.main-content'">
+  <ejs-sidebar #sidebarMenuInstance id="sidebar-menu" class="dock-menu" [enableDock]="true" [width]="'220px'"
+    [dockSize]="'50px'" [mediaQuery]="('(min-width: 600px)')" [target]="'.main-content'">
     <div class="main-menu">
       <p class="main-menu-header">MENU</p>
-      <ejs-menu [items]="menus"
-                orientation="Vertical"
-                cssClass="dock-menu"
-                (select)="onSelect($event)">
+      <ejs-menu [items]="menus" orientation="Vertical" cssClass="dock-menu" (select)="onSelect($event)">
       </ejs-menu>
     </div>
   </ejs-sidebar>
 
-  <div>
-    <div class="main-content">
-      <div class="sidebar-menu-content">
-        <router-outlet></router-outlet>
-      </div>
+  <div class="main-content">
+    <div class="sidebar-menu-content">
+      <router-outlet></router-outlet>
     </div>
-    <app-footer></app-footer>
   </div>
+  <app-footer></app-footer>
 </div>
-

@@ -10,3 +10,6 @@
 .e-campaign-status:before {
   content: '\e22d';
 }
+.e-edit:before {
+  content: '\e7a3';
+}

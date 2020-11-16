@@ -9,13 +9,15 @@ import { PComponentsModule } from '../p-components/p-components.module';
 import { CampaignFormComponent } from './components/ui/campaign-form/campaign-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CampaignsComponent } from './components/container/campaigns/campaigns.component';
+import { CampaignStatusComponent } from './components/container/campaign-status/campaign-status.component';
 
 
 @NgModule({
   declarations: [
     CampaignEditorComponent,
     CampaignFormComponent,
-    CampaignsComponent
+    CampaignsComponent,
+    CampaignStatusComponent
   ],
   imports: [
     CommonModule,
