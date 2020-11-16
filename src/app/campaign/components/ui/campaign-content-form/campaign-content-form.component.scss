@@ -1,0 +1,12 @@
+fieldset {
+  border: 1px solid #dfe1e5;
+  box-shadow: none;
+}
+
+::ng-deep .p-fileupload .p-fileupload-buttonbar .p-button {
+  background-color: #7cb342 !important;
+  outline: none !important;
+}
+::ng-deep .p-button.p-button-icon-only {
+  background-color: #7cb342 !important;
+}
