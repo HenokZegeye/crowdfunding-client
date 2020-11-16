@@ -8,12 +8,14 @@ import { LayoutComponent } from './components/container/layout/layout.component'
 import { ListViewModule } from '@syncfusion/ej2-angular-lists';
 import { MenuModule, SidebarModule } from '@syncfusion/ej2-angular-navigations';
 import { MdComponentsModule } from '../md-components/md-components.module';
+import { OuterLayoutComponent } from './components/container/outer-layout/outer-layout.component';
 
 @NgModule({
   declarations: [
     LayoutComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    OuterLayoutComponent
   ],
   imports: [
     CommonModule,
