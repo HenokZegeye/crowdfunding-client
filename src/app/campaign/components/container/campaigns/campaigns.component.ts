@@ -1,10 +1,9 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { map } from 'rxjs/operators';
 import { DialogConfig } from 'src/app/shared/models/dialog-config.model';
 import { DialogService } from 'src/app/shared/services/dialog.service';
 import { CampaignFormComponent } from '../../ui/campaign-form/campaign-form.component';
+import { CampaignService } from '../../../state/campaign.service';
 
 @Component({
   selector: 'app-campaigns',
@@ -13,31 +12,17 @@ import { CampaignFormComponent } from '../../ui/campaign-form/campaign-form.comp
 })
 export class CampaignsComponent implements OnInit {
   date = Date.now();
-  /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Welcome' },
-        ];
-      }
-
-      return [
-        { title: 'Welcome' },
-      ];
-    })
-  );
 
   campaigns = [
-    {title: 'Card1'},
-    {title: 'Card2'},
-    {title: 'Card3'},
-    {title: 'Card4'},
-    {title: 'Card5'},
-    {title: 'Card6'},
-    {title: 'Card7'},
-    {title: 'Card8'},
-    {title: 'Card9'},
+    { title: 'Card1' },
+    { title: 'Card2' },
+    { title: 'Card3' },
+    { title: 'Card4' },
+    { title: 'Card5' },
+    { title: 'Card6' },
+    { title: 'Card7' },
+    { title: 'Card8' },
+    { title: 'Card9' },
   ];
 
   dialogConfig: DialogConfig = {
@@ -47,15 +32,22 @@ export class CampaignsComponent implements OnInit {
     parentComponent: this
   } as DialogConfig;
 
-  constructor(private breakpointObserver: BreakpointObserver,
-              private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog,
+    private service: CampaignService) { }
 
   ngOnInit(): void {
+    this.service.get().subscribe((res) => {
+      this.campaigns = res.data;
+    });
   }
 
   onCreateCampaign() {
     this.dialogConfig.title = 'Add New Campaign';
     this.dialogConfig.formData = {};
     DialogService.handleDialog(this.dialogConfig);
+  }
+
+  onCampaignDetail(campaign) {
+    console.log(campaign);
   }
 }

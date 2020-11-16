@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-campaign-card',
@@ -7,9 +7,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CampaignCardComponent implements OnInit {
   @Input() campaign;
+  year = new Date();
+  @Output() clickCampaign = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onCampaignClick(campaign) {
+    this.clickCampaign.emit(campaign);
   }
 
 }

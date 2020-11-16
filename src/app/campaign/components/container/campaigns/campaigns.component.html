@@ -8,19 +8,19 @@
     </div>
   </div>
   <div class="row">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title>
-              My Campaigns
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <div class="row">
-              <div class="col-4 mt-2" *ngFor="let campaign of campaigns">
-                <app-campaign-card [campaign]="campaign"></app-campaign-card>
-              </div>
-            </div>
-          </mat-card-content>
-        </mat-card>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          My Campaigns
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col-4 mt-2" *ngFor="let campaign of campaigns">
+            <app-campaign-card [campaign]="campaign" (clickCampaign)="onCampaignDetail($event)"></app-campaign-card>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>

@@ -24,6 +24,10 @@ import { OuterLayoutComponent } from './components/container/outer-layout/outer-
     MenuModule,
     SidebarModule,
     MdComponentsModule
+  ],
+  exports: [
+    OuterLayoutComponent,
+    LayoutComponent
   ]
 })
 export class MainModule { }

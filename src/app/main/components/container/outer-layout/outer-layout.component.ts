@@ -12,4 +12,8 @@ export class OuterLayoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onLogout() {
+
+  }
+
 }

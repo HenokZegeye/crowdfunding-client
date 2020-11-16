@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Input() title: string;
   @Input() username: string;
+  @Input() noToggle: boolean;
 
   @Output() toggle = new EventEmitter<void>();
   @Output() logout = new EventEmitter<boolean>();

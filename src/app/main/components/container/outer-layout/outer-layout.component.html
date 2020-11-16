@@ -1,1 +1,10 @@
-<p>outer-layout works!</p>
+<div class="main-container">
+  <app-header [username]="'Abebe'" [title]="'Tibibir Center'" [noToggle]="true" (logout)="onLogout()">
+  </app-header>
+  <div class="main-content">
+    <div class="sidebar-menu-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
