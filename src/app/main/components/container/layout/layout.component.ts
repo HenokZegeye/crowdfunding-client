@@ -9,15 +9,20 @@ import { MenuEventArgs, SidebarComponent } from '@syncfusion/ej2-angular-navigat
 })
 export class LayoutComponent implements OnInit {
   @ViewChild('sidebarMenuInstance') sidebarMenuInstance: SidebarComponent;
-  menus = [
-    { text: 'Campaign Status', iconCss: 'e-icons e-campaign-status', url: '/main/campaign/status' },
-    { text: 'Campaign Editor', iconCss: 'e-icons e-edit', url: '/main/campaign/editor' },
-  ];
+  id;
+  menus = [];
 
   constructor(private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe((res: any) => {
+      this.id = res.id;
+      this.menus.push(
+        { text: 'Campaign Status', iconCss: 'e-icons e-campaign-status', url: `/main/campaign/status/${this.id}` },
+        { text: 'Campaign Editor', iconCss: 'e-icons e-edit', url: `/main/campaign/editor/${this.id}` },
+      )
+    });
   }
 
   onToggle(): void {

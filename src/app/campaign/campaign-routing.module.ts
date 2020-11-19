@@ -18,14 +18,14 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      { path: 'editor', component: CampaignEditorComponent }
+      { path: 'editor/:id', component: CampaignEditorComponent }
     ]
   },
   {
     path: '',
     component: LayoutComponent,
     children: [
-      { path: 'status', component: CampaignStatusComponent }
+      { path: 'status/:id', component: CampaignStatusComponent }
     ]
   },
 ];

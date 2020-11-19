@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./campaign-status.component.scss']
 })
 export class CampaignStatusComponent implements OnInit {
-
+  date = new Date();
   constructor() { }
 
   ngOnInit(): void {
