@@ -4,7 +4,10 @@ import { DialogConfig } from 'src/app/shared/models/dialog-config.model';
 import { DialogService } from 'src/app/shared/services/dialog.service';
 import { CampaignFormComponent } from '../../ui/campaign-form/campaign-form.component';
 import { CampaignService } from '../../../state/campaign.service';
+import { CampaignQuery } from '../../../state/campaign.query';
 import { Router } from '@angular/router';
+import { Campaign } from 'src/app/campaign/models/campaign.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-campaigns',
@@ -24,14 +27,15 @@ export class CampaignsComponent implements OnInit {
     service: this.service
   } as DialogConfig;
 
+  campaigns$: Observable<Campaign[]> = this.query.selectAll();
+
   constructor(private dialog: MatDialog,
     private service: CampaignService,
+    private query: CampaignQuery,
     private router: Router) { }
 
   ngOnInit(): void {
-    this.service.get().subscribe((res) => {
-      this.campaigns = res;
-    });
+    this.service.get().subscribe();
   }
 
   onCreateCampaign() {

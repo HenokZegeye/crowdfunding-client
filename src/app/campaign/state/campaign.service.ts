@@ -2,11 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
+import { CampaignStore } from './campaign.store';
 
 @Injectable({ providedIn: 'root' })
 export class CampaignService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private store: CampaignStore) {
   }
 
 
@@ -15,14 +16,7 @@ export class CampaignService {
     return this.http.get<any[]>(url)
       .pipe(
         tap((result: any) => {
-          console.log('Successfully loaded');
-          /* if (result.success) {
-            console.log('Successfully loaded');
-          } else {
-            const errors = result.errors;
-            const errorMessage = errors.join();
-            console.log('Error');
-          } */
+          this.store.set(result);
         }, error => {
           console.log('Error');
         })
@@ -34,16 +28,8 @@ export class CampaignService {
     return this.http.post(url, campaign)
       .pipe(
         tap((result: any) => {
-          if (result.success) {
-            console.log('Successfully added');
-          } else {
-            const errors = result.errors;
-            const errorMessage = errors.join();
-            /* this.utilService.showMessage('error', 'Error', errorMessage); */
-            console.log('Error');
-          }
+          this.store.add(result);
         }, error => {
-          /* this.utilService.showMessage('error', 'Error', error.error.errors.join()); */
           console.log('Error');
         })
       );
@@ -57,14 +43,10 @@ export class CampaignService {
           if (result.success) {
             console.log('Successfully updated');
           } else {
-            const errors = result.errors;
-            const errorMessage = errors.join();
-            /* this.utilService.showMessage('error', 'Error', errorMessage); */
             console.log('Error');
           }
         }, error => {
           console.log('Error')
-          /* this.utilService.showMessage('error', 'Error', error.error.errors.join()); */
         })
       );
   }

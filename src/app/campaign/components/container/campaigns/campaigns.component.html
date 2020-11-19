@@ -16,7 +16,7 @@
       </mat-card-header>
       <mat-card-content>
         <div class="row">
-          <div class="col-4 mt-2" *ngFor="let campaign of campaigns">
+          <div class="col-4 mt-2" *ngFor="let campaign of campaigns$|async">
             <app-campaign-card [campaign]="campaign" (clickCampaign)="onCampaignDetail($event)"></app-campaign-card>
           </div>
         </div>
