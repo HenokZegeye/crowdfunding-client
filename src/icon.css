@@ -1,0 +1,15 @@
+.e-file:before {
+  content: '\e704';
+}
+.e-search:before {
+  content: '\e993';
+}
+.e-delete:before {
+  content: '\e602';
+}
+.e-campaign-status:before {
+  content: '\e22d';
+}
+.e-edit:before {
+  content: '\e7a3';
+}

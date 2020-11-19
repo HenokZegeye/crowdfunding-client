@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  height: 40px;
+  width: 100%;
+  background-color: #1976d2;
+  align-items: center;
+  color: lightgray;
+}
+
+.title {
+  margin-left: 20px;
+  font-size: 16pt;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
