@@ -45,6 +45,7 @@ export class CampaignsComponent implements OnInit {
   }
 
   onCampaignDetail(campaign) {
+    this.service.setActive(campaign._id);
     this.router.navigate([`/main/campaign/status/${campaign._id}`]);
   }
 }

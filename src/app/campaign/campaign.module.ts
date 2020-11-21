@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CampaignsComponent } from './components/container/campaigns/campaigns.component';
 import { CampaignStatusComponent } from './components/container/campaign-status/campaign-status.component';
 import { CampaignContentFormComponent } from './components/ui/campaign-content-form/campaign-content-form.component';
+import { CampaignStatusCardComponent } from './components/ui/campaign-status-card/campaign-status-card.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CampaignContentFormComponent } from './components/ui/campaign-content-f
     CampaignFormComponent,
     CampaignsComponent,
     CampaignStatusComponent,
-    CampaignContentFormComponent
+    CampaignContentFormComponent,
+    CampaignStatusCardComponent
   ],
   imports: [
     CommonModule,

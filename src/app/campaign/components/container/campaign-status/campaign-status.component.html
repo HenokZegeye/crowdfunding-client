@@ -1,38 +1,4 @@
 <div class="container">
-  <mat-card>
-    <mat-card-content>
-      <div class="row">
-        <div class="col-4">
-          <mat-card>
-            <mat-card-content>
-              <p>Start Date: {{date|date}}</p>
-              <p>End Date: {{date|date}}</p>
-              <p>Status: OPEN</p>
-              <p>Campaign URL: tibircenter.com/sample-campaign</p>
-            </mat-card-content>
-          </mat-card>
-        </div>
-        <div class="col-4">
-          <mat-card>
-            <mat-card-content>
-              <p>Funding Goal: 20000</p>
-              <p>Total Raised: 1000</p>
-              <p>Donors: 100</p>
-              <p>Visits: 200</p>
-            </mat-card-content>
-          </mat-card>
-        </div>
-        <div class="col-4">
-          <mat-card>
-            <mat-card-content>
-              <p>Updates: 2</p>
-              <p>Comments: 15</p>
-              <p>Messages: 5</p>
-              <p>Supporters: 0</p>
-            </mat-card-content>
-          </mat-card>
-        </div>
-      </div>
-    </mat-card-content>
-  </mat-card>
+  <app-campaign-status-card [campaign]="campaign$|async">
+  </app-campaign-status-card>
 </div>

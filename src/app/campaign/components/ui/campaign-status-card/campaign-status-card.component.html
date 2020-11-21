@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{campaign?.campaign_title}} Status</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row container">
+      <div class="col-4 section">
+            <p>Start Date: {{campaign?.campaign_endingDate|date}}</p>
+            <p>End Date: {{campaign?.campaign_endingDate|date}}</p>
+            <p>Status: OPEN</p>
+            <p>Campaign URL: tibircenter.com/sample-campaign</p>
+      </div>
+      <div class="col-4 section">
+            <p>Funding Goal: 20000</p>
+            <p>Total Raised: 1000</p>
+            <p>Donors: 100</p>
+            <p>Visits: 200</p>
+      </div>
+      <div class="col-4 section">
+            <p>Updates: 2</p>
+            <p>Comments: 15</p>
+            <p>Messages: 5</p>
+            <p>Supporters: 0</p>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

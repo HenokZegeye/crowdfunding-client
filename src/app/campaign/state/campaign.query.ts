@@ -9,4 +9,8 @@ export class CampaignQuery extends QueryEntity<CampaignState> {
     super(store);
   }
 
+  selectCurrentCampaign() {
+   return this.select(state=>state.currentCampaign);
+  }
+
 }

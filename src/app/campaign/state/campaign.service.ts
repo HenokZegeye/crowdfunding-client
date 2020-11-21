@@ -50,4 +50,20 @@ export class CampaignService {
         })
       );
   }
+
+  show(id) {
+    const url = `${environment.apiUrl}/campaigns/${id}`;
+    return this.http.get(url)
+      .pipe(
+        tap((result: any) => {
+          this.store.update({currentCampaign: result});
+        }, error => {
+          console.log('Error');
+        })
+      )
+  }
+
+  setActive(id) {
+    this.store.setActive(id);
+  }
 }
