@@ -8,6 +8,7 @@ import { CampaignQuery } from '../../../state/campaign.query';
 import { Router } from '@angular/router';
 import { Campaign } from 'src/app/campaign/models/campaign.model';
 import { Observable } from 'rxjs';
+import { CampaignDetailComponent } from '../campaign-detail/campaign-detail.component';
 
 @Component({
   selector: 'app-campaigns',
@@ -45,7 +46,9 @@ export class CampaignsComponent implements OnInit {
   }
 
   onCampaignDetail(campaign) {
-    this.service.setActive(campaign._id);
-    this.router.navigate([`/main/campaign/status/${campaign._id}`]);
+    const dialogRef = this.dialog.open(CampaignDetailComponent, {
+      width: '2000px',
+      data: campaign
+    });
   }
 }
