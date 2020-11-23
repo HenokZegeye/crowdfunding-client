@@ -1,7 +1,4 @@
 <mat-card>
-  <mat-card-header>
-    <mat-card-title>{{campaign?.campaign_title}} Status</mat-card-title>
-  </mat-card-header>
   <mat-card-content>
     <div class="row container">
       <div class="col-4 section">
@@ -11,7 +8,7 @@
             <p>Campaign URL: tibircenter.com/sample-campaign</p>
       </div>
       <div class="col-4 section">
-            <p>Funding Goal: 20000</p>
+            <p>Funding Goal: {{campaign?.campaign_fundGoal}}</p>
             <p>Total Raised: 1000</p>
             <p>Donors: 100</p>
             <p>Visits: 200</p>

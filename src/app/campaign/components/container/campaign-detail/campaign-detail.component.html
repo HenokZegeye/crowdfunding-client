@@ -1,0 +1,43 @@
+<div mat-dialog-title>
+  <h2>{{campaign.campaign_title}}</h2>
+</div>
+<div mat-dialog-content>
+  <p-tabView>
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <span>Status</span>
+      </ng-template>
+      <app-campaign-status [campaign]="campaign"></app-campaign-status>
+    </p-tabPanel>
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <span>Editor</span>
+      </ng-template>
+      <app-campaign-editor [campaign]="campaign"></app-campaign-editor>
+    </p-tabPanel>
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <span>Updates</span>
+      </ng-template>
+      <p>Campaign updates posted here</p>
+    </p-tabPanel>
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <span>Comments</span>
+      </ng-template>
+      <p>Campaign Comments posted here</p>
+    </p-tabPanel>
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <span>Messages</span>
+      </ng-template>
+      <p>Campaign Messages posted here</p>
+    </p-tabPanel>
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <span>Funds</span>
+      </ng-template>
+      <p>Campaign Funds posted here</p>
+    </p-tabPanel>
+  </p-tabView>
+</div>

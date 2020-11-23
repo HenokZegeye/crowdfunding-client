@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-campaign-editor',
@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./campaign-editor.component.scss']
 })
 export class CampaignEditorComponent implements OnInit {
+  @Input() campaign;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
