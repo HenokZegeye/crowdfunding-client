@@ -12,6 +12,7 @@ import { CampaignsComponent } from './components/container/campaigns/campaigns.c
 import { CampaignStatusComponent } from './components/container/campaign-status/campaign-status.component';
 import { CampaignContentFormComponent } from './components/ui/campaign-content-form/campaign-content-form.component';
 import { CampaignStatusCardComponent } from './components/ui/campaign-status-card/campaign-status-card.component';
+import { CampaignDetailComponent } from './components/container/campaign-detail/campaign-detail.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { CampaignStatusCardComponent } from './components/ui/campaign-status-car
     CampaignsComponent,
     CampaignStatusComponent,
     CampaignContentFormComponent,
-    CampaignStatusCardComponent
+    CampaignStatusCardComponent,
+    CampaignDetailComponent
   ],
   imports: [
     CommonModule,
