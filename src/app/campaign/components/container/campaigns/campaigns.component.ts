@@ -5,7 +5,6 @@ import { DialogService } from 'src/app/shared/services/dialog.service';
 import { CampaignFormComponent } from '../../ui/campaign-form/campaign-form.component';
 import { CampaignService } from '../../../state/campaign.service';
 import { CampaignQuery } from '../../../state/campaign.query';
-import { Router } from '@angular/router';
 import { Campaign } from 'src/app/campaign/models/campaign.model';
 import { Observable } from 'rxjs';
 import { CampaignDetailComponent } from '../campaign-detail/campaign-detail.component';
@@ -16,8 +15,6 @@ import { CampaignDetailComponent } from '../campaign-detail/campaign-detail.comp
   styleUrls: ['./campaigns.component.scss']
 })
 export class CampaignsComponent implements OnInit {
-  date = Date.now();
-
   campaigns = [];
 
   dialogConfig: DialogConfig = {
@@ -32,8 +29,7 @@ export class CampaignsComponent implements OnInit {
 
   constructor(private dialog: MatDialog,
     private service: CampaignService,
-    private query: CampaignQuery,
-    private router: Router) { }
+    private query: CampaignQuery) { }
 
   ngOnInit(): void {
     this.service.get().subscribe();
@@ -46,7 +42,8 @@ export class CampaignsComponent implements OnInit {
   }
 
   onCampaignDetail(campaign) {
-    const dialogRef = this.dialog.open(CampaignDetailComponent, {
+    this.service.setActive(campaign._id);
+    this.dialog.open(CampaignDetailComponent, {
       width: '2000px',
       data: campaign
     });

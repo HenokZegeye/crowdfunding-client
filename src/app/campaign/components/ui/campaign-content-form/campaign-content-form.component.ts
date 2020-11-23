@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GenericValidator } from 'src/app/shared/validators/generic.validator';
 
@@ -10,6 +10,7 @@ import { GenericValidator } from 'src/app/shared/validators/generic.validator';
 export class CampaignContentFormComponent implements OnInit {
   @Output() formSubmit = new EventEmitter<any>();
   @Output() formClose = new EventEmitter<void>();
+  @Input() campaign;
   categories;
 
   form: FormGroup;
@@ -18,20 +19,6 @@ export class CampaignContentFormComponent implements OnInit {
   private readonly validationMessages: { [key: string]: { [key: string]: string } };
 
   constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({
-      id: null,
-      title: ['', Validators.required],
-      tagline: ['', Validators.required],
-      type: ['', Validators.required],
-      category_id: ['', Validators.required],
-      region: ['', Validators.required],
-      city: ['', Validators.required],
-      goal: ['', Validators.required],
-      end_date: ['', Validators.required],
-      story: ['', Validators.required],
-      cover_picture: ['', Validators.required]
-    });
-
     this.validationMessages = {
       title: {
         required: 'Title is required.'
@@ -65,7 +52,24 @@ export class CampaignContentFormComponent implements OnInit {
     this.genericValidator = new GenericValidator(this.validationMessages);
   }
 
+  createForm() {
+    this.form = this.fb.group({
+      id: null,
+      title: [this.campaign?.campaign_title, Validators.required],
+      tagline: [this.campaign?.campaign_tagline, Validators.required],
+      type: [this.campaign?.campaign_type, Validators.required],
+      category_id: [this.campaign?.campaign_category, Validators.required],
+      region: ['', Validators.required],
+      city: ['', Validators.required],
+      goal: [this.campaign?.campaign_fundGoal, Validators.required],
+      end_date: [this.campaign?.campaign_endingDate, Validators.required],
+      story: [this.campaign?.campaign_story, Validators.required],
+      cover_picture: ['', Validators.required]
+    });
+  }
+
   ngOnInit(): void {
+    this.createForm();
     this.form.valueChanges.subscribe(
       () => this.displayMessage = this.genericValidator.processMessages(this.form)
     );
