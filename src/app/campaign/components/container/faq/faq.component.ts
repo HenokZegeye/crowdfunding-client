@@ -46,7 +46,8 @@ export class FaqComponent implements OnInit {
   }
 
   onDelete(faq) {
-
+    const index = this.faqs.indexOf(faq);
+    this.faqs.splice(index, 1);
   }
 
 }
