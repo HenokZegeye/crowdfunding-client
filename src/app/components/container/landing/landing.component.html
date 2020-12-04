@@ -1,1 +1,22 @@
-<p>landing works!</p>
+<img width="100%" src="https://d2dfxqxblmblx4.cloudfront.net/wp-content/uploads/2019/02/18193424/CharityCulture_v1_1153x442.jpg" alt="">
+<div class="popular">
+  <div class="container">
+    <h1>Popular Fundraises</h1>
+    <div class="row">
+      <div class="col-4 mt-2" *ngFor="let campaign of campaigns">
+        <app-campaign-card [noFooter]="true" [noHeader]="true" [campaign]="campaign" (clickCampaign)="onCampaignDetail($event)"></app-campaign-card>
+      </div>
+    </div>
+  </div>
+</div>
+<img  width="100%" height="400px" src="https://www.compassion.com/Images/child-development-childrens-charity-hero_144757_1280x554.jpg" alt="">
+<div class="popular">
+  <div class="container">
+    <h1>Recent Fundraises</h1>
+    <div class="row">
+      <div class="col-4 mt-2" *ngFor="let campaign of campaigns">
+        <app-campaign-card [noFooter]="true" [noHeader]="true" [campaign]="campaign" (clickCampaign)="onCampaignDetail($event)"></app-campaign-card>
+      </div>
+    </div>
+  </div>
+</div>

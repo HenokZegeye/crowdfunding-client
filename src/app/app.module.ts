@@ -19,6 +19,8 @@ import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { environment } from '../environments/environment';
 import { LandingComponent } from './components/container/landing/landing.component';
+import { MainModule } from './main/main.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { LandingComponent } from './components/container/landing/landing.compone
     BrowserAnimationsModule,
     MatDialogModule,
     HttpClientModule,
-    environment.production ? [] : AkitaNgDevtools.forRoot()
+    MainModule,
+    environment.production ? [] : AkitaNgDevtools.forRoot(),
+    SharedModule
   ],
   providers: [{ provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: 'https://jsonplaceholder.typicode.com' }}],
   bootstrap: [AppComponent]
