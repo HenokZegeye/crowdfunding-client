@@ -18,10 +18,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { environment } from '../environments/environment';
+import { LandingComponent } from './components/container/landing/landing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LandingComponent,
   ],
   imports: [
     BrowserModule,
