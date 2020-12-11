@@ -7,8 +7,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class CampaignCardComponent implements OnInit {
   @Input() campaign;
+  @Input() noHeader;
+  @Input() noFooter;
   year = new Date();
   @Output() clickCampaign = new EventEmitter<any>();
+
   constructor() { }
 
   ngOnInit(): void {

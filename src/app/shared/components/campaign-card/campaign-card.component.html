@@ -1,5 +1,5 @@
 <div (click)="onCampaignClick(campaign)" style="cursor: pointer;">
-  <mat-card id="header-card">
+  <mat-card *ngIf="!noHeader" id="header-card">
     <div class="row">
       <p class="col">Status</p>
       <!-- <p class="col">{{campaign.campaign_approval?.statusType}}</p> -->
@@ -24,7 +24,7 @@
           </mat-progress-bar>
         </div>
         <div class="col">
-          {{campaign.progress_percentage}}
+          {{campaign.progress_percentage}}%
         </div>
       </div>
       <div class="row container">
@@ -35,7 +35,7 @@
         <span>{{campaign.campaign_category}}</span>
       </div>
     </mat-card-content>
-    <mat-card-footer id="header-card">
+    <mat-card-footer *ngIf="!noFooter" id="header-card">
       <div class="row container p-3">
         <p class="col">End Date</p>
         <p class="col">{{campaign.campaign_endingDate|date}}</p>
