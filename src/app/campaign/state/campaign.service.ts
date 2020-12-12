@@ -3,11 +3,14 @@ import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { CampaignStore } from './campaign.store';
+import { UtilService } from '../../shared/services/util.service';
 
 @Injectable({ providedIn: 'root' })
 export class CampaignService {
 
-  constructor(private http: HttpClient, private store: CampaignStore) {
+  constructor(private http: HttpClient,
+              private store: CampaignStore,
+              private utilService: UtilService) {
   }
 
 
@@ -25,7 +28,8 @@ export class CampaignService {
 
   add(campaign) {
     const url = `${environment.apiUrl}/campaigns`;
-    return this.http.post(url, campaign)
+    const campaignFormData = this.utilService.toFormData(campaign);
+    return this.http.post(url, campaignFormData)
       .pipe(
         tap((result: any) => {
           this.store.add(result);

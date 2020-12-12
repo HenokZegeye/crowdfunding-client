@@ -31,6 +31,6 @@ import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
     MatGridListModule,
     MatMenuModule,
     SidebarModule,
-  ]
+  ],
 })
 export class SharedModule { }
