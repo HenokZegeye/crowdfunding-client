@@ -8,6 +8,7 @@ import { CampaignQuery } from '../../../state/campaign.query';
 import { Campaign } from 'src/app/campaign/models/campaign.model';
 import { Observable } from 'rxjs';
 import { CampaignDetailComponent } from '../campaign-detail/campaign-detail.component';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-campaigns',

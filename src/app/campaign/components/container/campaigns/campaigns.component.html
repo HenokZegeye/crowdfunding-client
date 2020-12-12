@@ -7,25 +7,15 @@
       </button>
     </div>
   </div>
-  <div class="row">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          My Campaigns
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <div class="row">
-          <div class="col-5 mt-2" *ngFor="let campaign of campaigns$|async">
-            <app-campaign-card [campaign]="campaign" (clickCampaign)="onCampaignDetail($event)"></app-campaign-card>
-          </div>
-        </div>
-        <div class="row" *ngIf="(campaigns$|async).length<1">
-          <div class="container">
-            No Campaign Created
-          </div>
-        </div>
-      </mat-card-content>
-    </mat-card>
+  <h2>My Campaigns</h2>
+    <div class="row">
+      <div class="col-4 mt-2" *ngFor="let campaign of campaigns$|async">
+        <app-campaign-card [campaign]="campaign" (clickCampaign)="onCampaignDetail($event)"></app-campaign-card>
+      </div>
+    </div>
+    <div class="row" *ngIf="(campaigns$|async).length<1">
+      <div class="container">
+        No Campaign Created
+      </div>
+    </div>
   </div>
-</div>
