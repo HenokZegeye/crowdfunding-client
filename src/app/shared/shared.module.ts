@@ -12,6 +12,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
 import { ListComponent } from './components/list/list.component';
+import { PComponentsModule } from '../p-components/p-components.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ListComponent } from './components/list/list.component';
   imports: [
     CommonModule,
     MdComponentsModule,
+    PComponentsModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
