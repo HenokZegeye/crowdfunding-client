@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CampaignApprovalQuery } from '../../../state/campaign-approval.query';
+import { CampaignApprovalService } from '../../../state/campaign-approval.service';
 
 @Component({
   selector: 'app-campaign-approval',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CampaignApprovalComponent implements OnInit {
 
-  constructor() { }
+  columns = [
+    { name: 'campaign_title', label: 'Title' },
+    { name: 'campaign_category', label: 'Category' },
+    { name: 'campaign_fundGoal', label: 'Fund Goal' },
+    { name: 'campaign_endingDate', label: 'Ending Date' }
+  ];
+
+  tableActions = [
+    { icon: 'edit', color: 'warn', tooltip: 'Edit'}
+  ];
+
+  campaigns$: Observable<any[]> = this.query.selectAll();
+
+  constructor(private query: CampaignApprovalQuery,
+              private service: CampaignApprovalService) { }
 
   ngOnInit(): void {
+    this.service.getUnapprovedCampaign().subscribe();
+  }
+
+  onClick(event) {
+
   }
 
 }
