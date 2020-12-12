@@ -11,10 +11,13 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
+import { ListComponent } from './components/list/list.component';
+import { PComponentsModule } from '../p-components/p-components.module';
 
 @NgModule({
   declarations: [
-    CampaignCardComponent
+    CampaignCardComponent,
+    ListComponent
   ],
   exports: [
     CampaignCardComponent
@@ -22,6 +25,7 @@ import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
   imports: [
     CommonModule,
     MdComponentsModule,
+    PComponentsModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
