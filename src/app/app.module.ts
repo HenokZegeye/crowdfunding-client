@@ -21,6 +21,7 @@ import { environment } from '../environments/environment';
 import { LandingComponent } from './components/container/landing/landing.component';
 import { MainModule } from './main/main.module';
 import { SharedModule } from './shared/shared.module';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,10 @@ import { SharedModule } from './shared/shared.module';
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     SharedModule
   ],
-  providers: [{ provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: 'https://jsonplaceholder.typicode.com' }}],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: 'https://jsonplaceholder.typicode.com' }},
+    MessageService
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

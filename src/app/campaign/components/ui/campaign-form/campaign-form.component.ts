@@ -11,6 +11,7 @@ import { GenericValidator } from 'src/app/shared/validators/generic.validator';
 export class CampaignFormComponent implements OnInit {
   @Output() formSubmit = new EventEmitter<any>();
   @Output() formClose = new EventEmitter<void>();
+  selectedFile: File;
   categories: any[] = [
     'Medicine',
     'School'
@@ -34,7 +35,7 @@ export class CampaignFormComponent implements OnInit {
       campaign_fundGoal: [data.formData.campaign_fundGoal, Validators.required],
       campaign_endingDate: [data.formData.campaign_endingDate, Validators.required],
       campaign_story: [data.formData.campaign_story, Validators.required],
-      campaign_coverPicture: [data.formData.campaign_coverPicture]
+      campaign_imageUrl: [data.formData.campaign_imageUrl]
     });
 
     this.validationMessages = {
@@ -81,7 +82,8 @@ export class CampaignFormComponent implements OnInit {
   }
 
   onPhotoSelect(event) {
-
+    const file = event.target.files[0];
+    this.selectedFile = file;
   }
 
   onPhotoRemove() {
@@ -89,7 +91,9 @@ export class CampaignFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.formSubmit.emit(this.form.value);
+    const {campaign_imageUrl, ...rest} = this.form.value;
+    rest.campaign_imageUrl = this.selectedFile;
+    this.formSubmit.emit(rest);
   }
 
   onCancel() {

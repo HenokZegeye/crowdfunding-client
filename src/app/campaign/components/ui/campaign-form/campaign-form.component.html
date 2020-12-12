@@ -1,5 +1,5 @@
 <h2 mat-dialog-title>{{data.title}}</h2>
-<form [formGroup]="form" (submit)="onSubmit()">
+<form [formGroup]="form" (submit)="onSubmit()" enctype="multipart/form-data">
   <div mat-dialog-content>
     <mat-form-field class="full-width">
       <input required matInput type="text" placeholder="Title" formControlName="campaign_title" (blur)="blur()">
@@ -58,19 +58,11 @@
 
     <div class="col-sm-12">
       <mat-label>Cover picture</mat-label>
-      <input type="hidden" formControlName="campaign_coverPicture" required />
-      <p-fileUpload accept=".jpg,.jpeg" maxFileSize="2000000" fileLimit="1"
+      <input type="file" formControlName="campaign_imageUrl" (change)="onPhotoSelect($event)" required />
+      <!-- <p-fileUpload accept=".jpg,.jpeg" maxFileSize="2000000" fileLimit="1"
         invalidFileSizeMessageDetail="Maximum file size is 2Mb" showCancelButton showUploadButton
         (onSelect)="onPhotoSelect($event)" (onRemove)="onPhotoRemove()" [previewWidth]="100">
-        <!-- <ng-template pTemplate="toolbar">
-          <img
-            width="100px"
-            height="100px"
-            alt="Cover picture"
-          />
-          <mat-error *ngIf="form.controls.cover_picture.invalid">Cover picture is required.</mat-error>
-        </ng-template> -->
-      </p-fileUpload>
+      </p-fileUpload> -->
     </div>
   </div>
   <mat-dialog-actions align="end">
