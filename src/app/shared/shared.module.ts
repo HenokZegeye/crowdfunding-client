@@ -20,7 +20,8 @@ import { PComponentsModule } from '../p-components/p-components.module';
     ListComponent
   ],
   exports: [
-    CampaignCardComponent
+    CampaignCardComponent,
+    ListComponent
   ],
   imports: [
     CommonModule,

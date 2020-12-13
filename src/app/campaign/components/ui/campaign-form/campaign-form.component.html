@@ -58,11 +58,11 @@
 
     <div class="col-sm-12">
       <mat-label>Cover picture</mat-label>
-      <input type="file" formControlName="campaign_imageUrl" (change)="onPhotoSelect($event)" required />
-      <!-- <p-fileUpload accept=".jpg,.jpeg" maxFileSize="2000000" fileLimit="1"
+      <!-- <input type="type" formControlName="campaign_imageUrl" (change)="onPhotoSelect($event)" required /> -->
+      <p-fileUpload accept=".jpg,.jpeg" maxFileSize="2000000" fileLimit="1"
         invalidFileSizeMessageDetail="Maximum file size is 2Mb" showCancelButton showUploadButton
         (onSelect)="onPhotoSelect($event)" (onRemove)="onPhotoRemove()" [previewWidth]="100">
-      </p-fileUpload> -->
+      </p-fileUpload>
     </div>
   </div>
   <mat-dialog-actions align="end">

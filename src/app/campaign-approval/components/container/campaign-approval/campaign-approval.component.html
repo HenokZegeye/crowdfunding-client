@@ -1,0 +1,7 @@
+<app-list [columns]="columns"
+          [hasAction]="true"
+          caption="Unapproved Campaigns"
+          [actions]="tableActions"
+         [data]="campaigns$ | async"
+         (actionClick)="onClick($event)">
+</app-list>
