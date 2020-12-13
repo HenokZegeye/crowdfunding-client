@@ -82,7 +82,7 @@ export class CampaignFormComponent implements OnInit {
   }
 
   onPhotoSelect(event) {
-    const file = event.target.files[0];
+    const file = event.currentFiles[0];
     this.selectedFile = file;
   }
 
