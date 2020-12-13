@@ -9,6 +9,8 @@ import { ListViewModule } from '@syncfusion/ej2-angular-lists';
 import { MenuModule, SidebarModule } from '@syncfusion/ej2-angular-navigations';
 import { MdComponentsModule } from '../md-components/md-components.module';
 import { OuterLayoutComponent } from './components/container/outer-layout/outer-layout.component';
+import { PComponentsModule } from '../p-components/p-components.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { OuterLayoutComponent } from './components/container/outer-layout/outer-
     ListViewModule,
     MenuModule,
     SidebarModule,
-    MdComponentsModule
+    MdComponentsModule,
+    PComponentsModule,
+    FormsModule
   ],
   exports: [
     OuterLayoutComponent,
