@@ -6,10 +6,11 @@ import { CampaignDonateComponent } from './components/container/campaign-donate/
 import { MatCardModule } from '@angular/material/card';
 import { PComponentsModule } from '../p-components/p-components.module';
 import { MdComponentsModule } from '../md-components/md-components.module';
+import { DonationFormComponent } from './components/ui/donation-form/donation-form.component';
 
 
 @NgModule({
-  declarations: [CampaignDonateComponent],
+  declarations: [CampaignDonateComponent, DonationFormComponent],
   imports: [
     CommonModule,
     DonationRoutingModule,
