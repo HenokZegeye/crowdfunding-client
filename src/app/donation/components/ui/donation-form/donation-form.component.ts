@@ -49,11 +49,11 @@ export class DonationFormComponent implements OnInit {
   }
 
   onSubmit() {
-
+    this.formSubmit.emit(this.form.value);
   }
 
   onCancel() {
-
+    this.formClose.emit();
   }
 
 }

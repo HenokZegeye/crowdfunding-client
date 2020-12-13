@@ -29,6 +29,20 @@ export class CampaignDonateComponent implements OnInit {
 
   onDonate() {
     const dialogRef = this.utilService.openDialog(DonationFormComponent,undefined, '500px');
+    const submitSub = (dialogRef.componentInstance as any).formSubmit.subscribe(data => {
+      this.onSubmit(data);
+    });
+
+    const closeSub = (dialogRef.componentInstance as any).formClose.subscribe(() => dialogRef.close());
+
+    dialogRef.afterClosed().subscribe(() => {
+      submitSub.unsubscribe();
+      closeSub.unsubscribe();
+    });
+  }
+
+  onSubmit(data) {
+    console.log('dddd', data);
   }
 
 }
