@@ -20,13 +20,14 @@ export class DonationFormComponent implements OnInit {
   constructor(private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: any) {
       this.form = this.fb.group({
-        paymentAccount_senderBankNumber: [Validators.required],
-        paymentTransfer_transferAmount: [Validators.required, Validators.min(0)]
+        paymentAccount_senderBankNumber:['',[Validators.required, Validators.min(0)]],
+        paymentTransfer_transferAmount: ['', [Validators.required, Validators.min(0)]]
       });
 
       this.validationMessages = {
         paymentAccount_senderBankNumber: {
-          required: 'Account number is required.'
+          required: 'Account number is required.',
+          min: 'Minimum value is 0.'
         },
         paymentTransfer_transferAmount: {
           required: 'Donation amount is required.',

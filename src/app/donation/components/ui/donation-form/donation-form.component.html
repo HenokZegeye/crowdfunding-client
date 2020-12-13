@@ -2,7 +2,7 @@
 <form [formGroup]="form" (submit)="onSubmit()" enctype="multipart/form-data">
   <div mat-dialog-content>
     <mat-form-field class="full-width">
-      <input required matInput type="text" placeholder="Account Number" formControlName="paymentAccount_senderBankNumber" (blur)="blur()">
+      <input required matInput type="number" placeholder="Account Number" formControlName="paymentAccount_senderBankNumber" (blur)="blur()">
       <mat-error *ngIf="displayMessage.paymentAccount_senderBankNumber">{{ displayMessage.paymentAccount_senderBankNumber }}</mat-error>
     </mat-form-field>
 
@@ -15,7 +15,7 @@
   </div>
   <mat-dialog-actions align="end">
     <div class="button-row">
-      <button mat-stroked-button color="primary" type="submit">
+      <button mat-stroked-button color="primary" [disabled]="form.invalid" type="submit">
         <mat-icon>save</mat-icon>
         Save
       </button>

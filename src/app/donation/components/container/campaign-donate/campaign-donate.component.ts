@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../../../environments/environment';
 import { CampaignService } from '../../../../campaign/state/campaign.service';
+import { UtilService } from '../../../../shared/services/util.service';
+import { DonationFormComponent } from '../../ui/donation-form/donation-form.component';
 
 @Component({
   selector: 'app-campaign-donate',
@@ -12,7 +14,8 @@ export class CampaignDonateComponent implements OnInit {
   campaign;
   coverPhotoPath;
   constructor(private campaignService: CampaignService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private utilService: UtilService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(queryParams=>{
@@ -22,6 +25,10 @@ export class CampaignDonateComponent implements OnInit {
         this.coverPhotoPath = `${environment.apiUrl}/${this.campaign.campaign_imageUrl}`;
       });
     });
+  }
+
+  onDonate() {
+    const dialogRef = this.utilService.openDialog(DonationFormComponent,undefined, '500px');
   }
 
 }

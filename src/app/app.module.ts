@@ -23,6 +23,7 @@ import { MainModule } from './main/main.module';
 import { SharedModule } from './shared/shared.module';
 import { MessageService } from 'primeng/api';
 import { ExploredCampaignsComponent } from './components/container/explored-campaigns/explored-campaigns.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ExploredCampaignsComponent } from './components/container/explored-camp
     BrowserAnimationsModule,
     MatDialogModule,
     HttpClientModule,
+    ReactiveFormsModule,
     MainModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     SharedModule
