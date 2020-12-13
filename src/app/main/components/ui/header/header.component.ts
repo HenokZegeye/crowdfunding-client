@@ -13,6 +13,14 @@ export class HeaderComponent implements OnInit {
   @Output() toggle = new EventEmitter<void>();
   @Output() logout = new EventEmitter<boolean>();
 
+  selectedCategory;
+
+  categories: any[] = [
+    { name: 'Health', value: 'health'},
+    { name: 'Education', value: 'education'},
+    { name: 'Art', value: 'art'}
+  ];
+
   constructor() { }
 
   ngOnInit(): void {

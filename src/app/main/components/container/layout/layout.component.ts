@@ -31,7 +31,7 @@ export class LayoutComponent implements OnInit {
 
   onLogout() {
     // this.service.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 
   onSelect(event: MenuEventArgs) {

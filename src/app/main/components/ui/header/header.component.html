@@ -3,6 +3,7 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span class="title">{{ title }}</span>
+  <p-dropdown class="ml-3" [options]="categories" placeholder="Explore Campaigns" [(ngModel)]="selectedCategory" optionLabel="name"></p-dropdown>
   <span class="spacer"></span>
   <button mat-button>
     <mat-icon>account_circle</mat-icon>
