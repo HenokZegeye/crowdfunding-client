@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="text">
+   <h2>{{category|uppercase}} Fundraising</h2>
+  </div>
+  <div class="col-4 mt-2" *ngFor="let campaign of campaigns">
+    <app-campaign-card [noFooter]="true" [noHeader]="true" [campaign]="campaign" (clickCampaign)="onDetail($event)"></app-campaign-card>
+  </div>
+</div>

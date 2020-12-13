@@ -22,11 +22,14 @@ import { LandingComponent } from './components/container/landing/landing.compone
 import { MainModule } from './main/main.module';
 import { SharedModule } from './shared/shared.module';
 import { MessageService } from 'primeng/api';
+import { ExploredCampaignsComponent } from './components/container/explored-campaigns/explored-campaigns.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
+    ExploredCampaignsComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { MessageService } from 'primeng/api';
     BrowserAnimationsModule,
     MatDialogModule,
     HttpClientModule,
+    ReactiveFormsModule,
     MainModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     SharedModule

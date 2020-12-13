@@ -17,4 +17,8 @@ export class OuterLayoutComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  onExplore(event) {
+    this.router.navigate(['/campaigns', event])
+  }
+
 }
