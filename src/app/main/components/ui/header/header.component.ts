@@ -10,8 +10,10 @@ export class HeaderComponent implements OnInit {
   @Input() username: string;
   @Input() noToggle: boolean;
 
+
   @Output() toggle = new EventEmitter<void>();
   @Output() logout = new EventEmitter<boolean>();
+  @Output() explore = new EventEmitter<string>();
 
   selectedCategory;
 
@@ -25,6 +27,10 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onExplore(event) {
+    this.explore.emit(event.value);
   }
 
   onToggle(): void {
