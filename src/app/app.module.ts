@@ -22,11 +22,13 @@ import { LandingComponent } from './components/container/landing/landing.compone
 import { MainModule } from './main/main.module';
 import { SharedModule } from './shared/shared.module';
 import { MessageService } from 'primeng/api';
+import { ExploredCampaignsComponent } from './components/container/explored-campaigns/explored-campaigns.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
+    ExploredCampaignsComponent,
   ],
   imports: [
     BrowserModule,

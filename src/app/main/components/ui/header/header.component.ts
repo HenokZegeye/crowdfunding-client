@@ -16,9 +16,10 @@ export class HeaderComponent implements OnInit {
   selectedCategory;
 
   categories: any[] = [
-    { name: 'Health', value: 'health'},
+    { name: 'Medical', value: 'medical'},
     { name: 'Education', value: 'education'},
-    { name: 'Art', value: 'art'}
+    { name: 'Charity', value: 'charity'},
+    { name: 'Memorial', value: 'memorial'}
   ];
 
   constructor() { }
