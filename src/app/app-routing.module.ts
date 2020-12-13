@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
   { path: 'main', loadChildren: () => import('./main/main.module').then(m => m.MainModule)},
   { path: 'donation', loadChildren: () => import('./donation/donation.module').then(m => m.DonationModule)},
+  { path: '**', redirectTo: 'auth'}
 ];
 
 @NgModule({
