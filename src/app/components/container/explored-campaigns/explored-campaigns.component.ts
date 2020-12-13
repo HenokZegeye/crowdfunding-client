@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ExploredCampaignsService } from '../../../state/explored-campaigns.service';
 
 @Component({
@@ -11,7 +11,8 @@ export class ExploredCampaignsComponent implements OnInit {
   category;
   campaigns: any[] = [];
   constructor(private route: ActivatedRoute,
-              private service: ExploredCampaignsService) { }
+              private service: ExploredCampaignsService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(param => {
@@ -21,6 +22,11 @@ export class ExploredCampaignsComponent implements OnInit {
       });
       //Fetch campaign using category
     });
+  }
+
+  onDetail(campaign) {
+    const id = campaign._id;
+    this.router.navigate(['donation'], {queryParams: {id} })
   }
 
 }
