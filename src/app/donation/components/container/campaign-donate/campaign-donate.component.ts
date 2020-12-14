@@ -5,6 +5,8 @@ import { CampaignService } from '../../../../campaign/state/campaign.service';
 import { UtilService } from '../../../../shared/services/util.service';
 import { DonationFormComponent } from '../../ui/donation-form/donation-form.component';
 import { DonationService } from '../../../state/donation.service';
+import { DonationQuery } from '../../../state/donation.query';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-campaign-donate',
@@ -15,10 +17,15 @@ export class CampaignDonateComponent implements OnInit {
   campaign;
   coverPhotoPath;
   dialogRef;
+
+  totalRaised$: Observable<any> = this.dontaionQuery.selectTotalRaised();
+  donationPercentage$: Observable<any> = this.dontaionQuery.selectDonationPercentage();
+
   constructor(private campaignService: CampaignService,
               private route: ActivatedRoute,
               private utilService: UtilService,
-              private donationService: DonationService) { }
+              private donationService: DonationService,
+              private dontaionQuery: DonationQuery) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(queryParams=>{

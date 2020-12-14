@@ -4,13 +4,15 @@ import { tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { CampaignStore } from './campaign.store';
 import { UtilService } from '../../shared/services/util.service';
+import { DonationStore } from '../../donation/state/donation.store';
 
 @Injectable({ providedIn: 'root' })
 export class CampaignService {
 
   constructor(private http: HttpClient,
               private store: CampaignStore,
-              private utilService: UtilService) {
+              private utilService: UtilService,
+              private donationStore: DonationStore) {
   }
 
 
@@ -60,6 +62,10 @@ export class CampaignService {
     return this.http.get(url)
       .pipe(
         tap((result: any) => {
+          this.donationStore.update({
+            totalDonated: result.fundRecord[0].fundRecord_totalDonations,
+            donationPercentage: result.fundRecord[0].fundRecord_raisedPercentage
+          });
           this.store.update({currentCampaign: result});
         }, error => {
           console.log('Error');
