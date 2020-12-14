@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,7 @@ export class HeaderComponent implements OnInit {
   @Input() title: string;
   @Input() username: string;
   @Input() noToggle: boolean;
+  @Input() isLogggedIn: boolean;
 
 
   @Output() toggle = new EventEmitter<void>();
@@ -24,13 +26,21 @@ export class HeaderComponent implements OnInit {
     {name: 'Memorial'}
   ];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onExplore(event) {
     this.explore.emit(event.name);
+  }
+
+  onSignIn() {
+    this.router.navigate(['/auth']);
+  }
+
+  onStartCampaign() {
+    this.router.navigate(['/auth/sign-up'])
   }
 
   onToggle(): void {

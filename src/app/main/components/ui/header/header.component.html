@@ -5,11 +5,19 @@
   <span class="title" routerLink="/">{{ title }}</span>
   <p-dropdown class="ml-3" [options]="categories" (onChange)="onExplore(selectedCategory)" placeholder="Explore Campaigns" [(ngModel)]="selectedCategory" optionLabel="name"></p-dropdown>
   <span class="spacer"></span>
-  <button mat-button>
+  <button (click)="onStartCampaign()" mat-button *ngIf="!isLogggedIn">
+    <mat-icon>launch</mat-icon>
+    Start Campaign
+  </button>
+  <button (click)="onSignIn()" mat-button *ngIf="!isLogggedIn">
+    <mat-icon>login</mat-icon>
+    Sign In
+  </button>
+  <button mat-button *ngIf="isLogggedIn">
     <mat-icon>account_circle</mat-icon>
     {{username}}
   </button>
-  <button mat-button (click)="onLogout()" id="logout">
+  <button *ngIf="isLogggedIn" mat-button (click)="onLogout()" id="logout">
     <mat-icon>logout</mat-icon>
     Logout
   </button>

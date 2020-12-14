@@ -8,10 +8,12 @@ import { Router } from '@angular/router';
 })
 export class OuterLayoutComponent implements OnInit {
   username = 'Abebe K.';
+  isLoggedIn: boolean;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.username = localStorage.getItem('userName');
+    this.isLoggedIn = localStorage.getItem('userToken') ? true : false;
   }
 
   onLogout() {
