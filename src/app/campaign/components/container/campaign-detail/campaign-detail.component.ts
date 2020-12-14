@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -8,13 +9,20 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class CampaignDetailComponent implements OnInit {
   campaign;
+  form: FormGroup;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder) {
     this.campaign = data;
-    debugger
+    this.form = this.fb.group({
+      paymentAccount_receiverBankNumber: [Validators.required]
+    });
   }
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+
   }
 
 }

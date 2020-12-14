@@ -17,24 +17,6 @@
     </p-tabPanel>
     <p-tabPanel>
       <ng-template pTemplate="header">
-        <span>Updates</span>
-      </ng-template>
-      <p>Campaign updates posted here</p>
-    </p-tabPanel>
-    <p-tabPanel>
-      <ng-template pTemplate="header">
-        <span>Comments</span>
-      </ng-template>
-      <p>Campaign Comments posted here</p>
-    </p-tabPanel>
-    <p-tabPanel>
-      <ng-template pTemplate="header">
-        <span>Messages</span>
-      </ng-template>
-      <p>Campaign Messages posted here</p>
-    </p-tabPanel>
-    <p-tabPanel>
-      <ng-template pTemplate="header">
         <span>Funds</span>
       </ng-template>
       <div>
@@ -51,6 +33,44 @@
           <span class="col-8 key">Number of Donors:</span><span>{{campaign?.fundRecord[0]?.fundRecord_numberOfDonors}}</span>
         </div>
       </div>
+    </p-tabPanel>
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <span>Withdraw</span>
+      </ng-template>
+      <div>
+        <form [formGroup]="form" (submit)="onSubmit()">
+          <mat-form-field class="full-width container">
+            <input required matInput type="number" placeholder="Receiver Account Number" formControlName="paymentAccount_receiverBankNumber">
+          </mat-form-field>
+          <div align="end" class="mt-3">
+            <div class="button-row">
+              <button mat-stroked-button color="primary" type="submit" [disabled]="!form.valid">
+                <mat-icon>save</mat-icon>
+                Save
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </p-tabPanel>
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <span>Updates</span>
+      </ng-template>
+      <p>Campaign updates posted here</p>
+    </p-tabPanel>
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <span>Comments</span>
+      </ng-template>
+      <p>Campaign Comments posted here</p>
+    </p-tabPanel>
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <span>Messages</span>
+      </ng-template>
+      <p>Campaign Messages posted here</p>
     </p-tabPanel>
   </p-tabView>
 </div>
