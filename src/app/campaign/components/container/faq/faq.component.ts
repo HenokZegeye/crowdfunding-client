@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { FaqService } from '../../../state/faq.service';
+import { FaqQuery } from '../../../state/faq.query';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-faq',
@@ -8,14 +11,22 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class FaqComponent implements OnInit {
   form: FormGroup;
+  @Input() campaign;
   faqs: any[] = [
     {faq_question: 'How can we do?', faq_answer: 'I do not know', editable: false}
   ];
 
-  constructor(private fb: FormBuilder) { }
+  faqs$: Observable<any> = this.query.selectAll();
+
+  constructor(private fb: FormBuilder,
+              private service: FaqService,
+              private query: FaqQuery) { }
 
 
   ngOnInit(): void {
+    const id = this.campaign._id;
+    debugger
+    this.service.get(id).subscribe();
     this.createForm();
   }
 

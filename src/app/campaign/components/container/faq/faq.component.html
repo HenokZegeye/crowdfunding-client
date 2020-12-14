@@ -13,7 +13,7 @@
         </button>
     </form>
   </fieldset>
-  <fieldset class="container mt-3 p-3" *ngFor="let faq of faqs">
+  <fieldset class="container mt-3 p-3" *ngFor="let faq of faqs$|async">
     <div>
         <mat-form-field class="full-width">
           <input required [readonly]="!faq.editable" matInput type="text" placeholder="Question" [(ngModel)]="faq.faq_question" (blur)="blur()">
