@@ -18,8 +18,8 @@
 
         <mat-form-field class="full-width">
           <mat-select required formControlName="category_id" placeholder="Category" (blur)="blur()">
-            <mat-option *ngFor="let c of categories" [value]="c.id">
-              {{c.name}}
+            <mat-option *ngFor="let c of categories" [value]="c">
+              {{c}}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="displayMessage.category_id">{{ displayMessage.category_id }}</mat-error>
