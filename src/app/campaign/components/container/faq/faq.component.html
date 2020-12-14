@@ -2,13 +2,13 @@
   <fieldset class="container">
     <form [formGroup]="form" (submit)="onCreate(); form.reset()">
         <mat-form-field class="full-width">
-          <input required matInput type="text" placeholder="Question" formControlName="faq_question" (blur)="blur()">
+          <input required matInput type="text" placeholder="Question" formControlName="campaignFaq_faqQuestion" (blur)="blur()">
         </mat-form-field>
 
         <mat-form-field class="full-width">
-          <input required matInput type="text" placeholder="Answer" formControlName="faq_answer" (blur)="blur()">
+          <input required matInput type="text" placeholder="Answer" formControlName="campaignFaq_faqAnswer" (blur)="blur()">
         </mat-form-field>
-        <button class="btn btn-primary m-2 float-right" type="submit">
+        <button class="btn btn-success m-2 float-right" type="submit">
           Add
         </button>
     </form>
@@ -16,11 +16,11 @@
   <fieldset class="container mt-3 p-3" *ngFor="let faq of faqs$|async">
     <div>
         <mat-form-field class="full-width">
-          <input required [readonly]="!faq.editable" matInput type="text" placeholder="Question" [(ngModel)]="faq.faq_question" (blur)="blur()">
+          <input required [readonly]="!faq.editable" matInput type="text" placeholder="Question" [(ngModel)]="faq.campaignFaq_faqQuestion" (blur)="blur()">
         </mat-form-field>
 
         <mat-form-field class="full-width">
-          <input required [readonly]="!faq.editable" matInput type="text" placeholder="Answer" [(ngModel)]="faq.faq_answer" (blur)="blur()">
+          <input required [readonly]="!faq.editable" matInput type="text" placeholder="Answer" [(ngModel)]="faq.campaignFaq_faqAnswer" (blur)="blur()">
         </mat-form-field>
         <div class="row float-right">
           <button *ngIf="!faq.editable" class="btn btn-warning m-2" (click)="onEdit(faq)">Edit</button>

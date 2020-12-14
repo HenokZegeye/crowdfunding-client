@@ -21,17 +21,16 @@ export class FaqService {
     return this.http.get<any[]>(url)
       .pipe(
         tap((result: any) => {
-          this.store.set(result);
+          this.store.set(result.campaignFaq);
         }, error => {
           console.log('Error');
         })
       );
   }
 
-  add(campaign) {
-    const url = `${environment.apiUrl}/campaigns`;
-    const campaignFormData = this.utilService.toFormData(campaign);
-    return this.http.post(url, campaignFormData)
+  add(faq, campaignId) {
+    const url = `${environment.apiUrl}/campaigns/${campaignId}/faq`;
+    return this.http.post(url, faq)
       .pipe(
         tap((result: any) => {
           this.store.add(result);

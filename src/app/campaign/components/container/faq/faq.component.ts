@@ -32,9 +32,9 @@ export class FaqComponent implements OnInit {
 
   createForm() {
    this.form = this.fb.group({
-      faq_question: '',
-      faq_answer: ''
-    })
+      campaignFaq_faqQuestion: '',
+      campaignFaq_faqAnswer: ''
+    });
   }
 
   blur() {
@@ -42,7 +42,8 @@ export class FaqComponent implements OnInit {
   }
 
   onCreate() {
-    this.faqs.push(this.form.value);
+    const id = this.campaign._id;
+    this.service.add(this.form.value,id).subscribe();
     this.form.reset();
   }
 
