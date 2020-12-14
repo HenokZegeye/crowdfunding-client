@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DonationService } from '../../../../donation/state/donation.service';
 
 @Component({
   selector: 'app-campaign-detail',
@@ -11,10 +12,11 @@ export class CampaignDetailComponent implements OnInit {
   campaign;
   form: FormGroup;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder,
+              private donationSevice: DonationService) {
     this.campaign = data;
     this.form = this.fb.group({
-      paymentAccount_receiverBankNumber: [Validators.required]
+      paymentAccount_receiverBankNumber: ['', Validators.required]
     });
   }
 
@@ -22,7 +24,10 @@ export class CampaignDetailComponent implements OnInit {
   }
 
   onSubmit() {
-
+    const id = this.campaign._id;
+    this.donationSevice.withdraw(id, this.form.value).subscribe((res)=>{
+      debugger
+    })
   }
 
 }

@@ -17,16 +17,16 @@
       <div class="row container">
         {{campaign.campaign_story}}
       </div>
-      <div class="row">
+      <div class="row" *ngIf="campaign?.fundRecord">
         <div class="col-8">
-          <mat-progress-bar style="height: 20px;" mode="determinate" [value]="campaign?.fundRecord[0].fundRecord_raisedPercentage">
+          <mat-progress-bar style="height: 20px;" mode="determinate" [value]="campaign?.fundRecord[0]?.fundRecord_raisedPercentage">
           </mat-progress-bar>
         </div>
-        <div class="col" *ngIf="campaign?.fundRecord">
-          {{campaign?.fundRecord[0].fundRecord_raisedPercentage}}%
+        <div class="col">
+          {{campaign?.fundRecord[0]?.fundRecord_raisedPercentage}}%
         </div>
       </div>
-      <div class="row container">
+      <div class="row container" *ngIf="campaign?.fundRecord">
         <span style="font-weight: bold;">{{campaign?.fundRecord[0]?.fundRecord_totalDonations}} </span>&nbsp;<span>raised of &nbsp;</span>
          <span style="font-weight: bold;">{{campaign.campaign_fundGoal}}</span>
       </div>
