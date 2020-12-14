@@ -46,7 +46,8 @@ export class CampaignsComponent implements OnInit {
     this.service.setActive(campaign._id);
     this.dialog.open(CampaignDetailComponent, {
       width: '2000px',
-      data: campaign
+      data: campaign,
+      height: '700px'
     });
   }
 }

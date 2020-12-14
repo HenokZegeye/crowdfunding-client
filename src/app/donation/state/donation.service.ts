@@ -28,7 +28,7 @@ export class DonationService {
   }
 
   withdraw(campaignId, data) {
-    const url = `${environment.apiUrl}/paymentTransfer/withdraw/:${campaignId}`;
+    const url = `${environment.apiUrl}/paymentTransfer/withdraw/${campaignId}`;
     return this.http.post(url, data)
       .pipe(
         tap((result: any) => {
