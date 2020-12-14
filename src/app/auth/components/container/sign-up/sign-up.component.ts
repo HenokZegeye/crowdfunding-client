@@ -18,10 +18,10 @@ export class SignUpComponent implements OnInit {
   onSubmit(event) {
     if (event) {
       this.service
-        .signUp({ payload: event })
+        .signUp(event)
         .subscribe(
           (res) => {
-
+            this.utilService.showMessage('success', 'Success', 'Account created successfully.');
           },
           (err) => {
             this.utilService.showMessage('error','Error', err.error.errors.join());

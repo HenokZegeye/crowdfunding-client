@@ -24,6 +24,7 @@ import { SharedModule } from './shared/shared.module';
 import { MessageService } from 'primeng/api';
 import { ExploredCampaignsComponent } from './components/container/explored-campaigns/explored-campaigns.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MainModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
-    SharedModule
+    SharedModule,
+    ToastModule
   ],
   providers: [
     { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: 'https://jsonplaceholder.typicode.com' }},

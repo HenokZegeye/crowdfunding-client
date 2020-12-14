@@ -8,11 +8,11 @@
           <input
             matInput
             placeholder="Enter your name"
-            formControlName="first_name"
+            formControlName="userAccount_firstName"
             required
             (blur)="blur()"
           />
-          <mat-error *ngIf="displayMessage.first_name">{{ displayMessage.first_name }}</mat-error>
+          <mat-error *ngIf="displayMessage.userAccount_firstName">{{ displayMessage.userAccount_firstName }}</mat-error>
         </mat-form-field>
       </div>
       <div>
@@ -21,11 +21,11 @@
           <input
             matInput
             placeholder="Enter your last name"
-            formControlName="last_name"
+            formControlName="userAccount_lastName"
             required
             (blur)="blur()"
           />
-          <mat-error *ngIf="displayMessage.last_name">{{ displayMessage.last_name }}</mat-error>
+          <mat-error *ngIf="displayMessage.userAccount_lastName">{{ displayMessage.userAccount_lastName }}</mat-error>
         </mat-form-field>
       </div>
       <div>
@@ -34,11 +34,11 @@
           <input
             matInput
             placeholder="pat@example.com"
-            formControlName="email"
+            formControlName="userAccount_email"
             required
             (blur)="blur()"
           />
-          <mat-error *ngIf="displayMessage.email">{{ displayMessage.email }}</mat-error>
+          <mat-error *ngIf="displayMessage.userAccount_email">{{ displayMessage.userAccount_email }}</mat-error>
         </mat-form-field>
       </div>
       <div>
@@ -47,11 +47,63 @@
           <input
             matInput
             placeholder="0912345678"
-            formControlName="phoneNumber"
+            formControlName="userAccount_phoneNumber"
             required
             (blur)="blur()"
           />
-          <mat-error *ngIf="displayMessage.phoneNumber">{{ displayMessage.phoneNumber }}</mat-error>
+          <mat-error *ngIf="displayMessage.userAccount_phoneNumber">{{ displayMessage.userAccount_phoneNumber }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            required
+            formControlName="userAccount_password"
+            (input)="onPasswordInput()"
+            (blur)="blur()"
+          />
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{
+              hide ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+          <mat-error *ngIf="displayMessage.userAccount_password">{{ displayMessage.userAccount_password }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Confirm Password</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            required
+            formControlName="password_confirmation"
+            (input)="onPasswordInput()"
+            (blur)="blur()"
+          />
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{
+              hide ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+          <mat-error *ngIf="displayMessage.password_confirmation">{{ displayMessage.password_confirmation }}</mat-error>
         </mat-form-field>
       </div>
       <div>

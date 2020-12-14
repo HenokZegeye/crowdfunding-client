@@ -16,7 +16,7 @@ export class AuthService {
   }
 
   signUp(value): Observable<any> {
-    const url = `${environment.apiUrl}/applicants/sign_up`;
+    const url = `${environment.apiUrl}/userAccount/signup`;
     return this.http.post(url, value);
   }
 

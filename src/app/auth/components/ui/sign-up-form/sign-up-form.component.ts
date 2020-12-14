@@ -9,6 +9,7 @@ import { GenericValidator } from '../../../../shared/validators/generic.validato
 })
 export class SignUpFormComponent implements OnInit {
   @Output() formSubmit = new EventEmitter();
+  hide = true;
 
   form: FormGroup;
   displayMessage: { [key: string]: string } = {};
@@ -17,30 +18,41 @@ export class SignUpFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      first_name: [
+      userAccount_firstName: [
         '',
         [Validators.required, Validators.pattern(/[a-zA-Z\s]$/)],
       ],
-      last_name: ['', [Validators.required, Validators.pattern(/[a-zA-Z\s]$/)]],
-      email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', Validators.required]
-    });
+      userAccount_lastName: ['', [Validators.required, Validators.pattern(/[a-zA-Z\s]$/)]],
+      userAccount_email: ['', [Validators.required, Validators.email]],
+      userAccount_phoneNumber: ['', Validators.required],
+      userAccount_password: ['', [Validators.required, Validators.min(6)]],
+      password_confirmation: [''],
+    },
+    { validator: this.checkPasswords });
 
     this.validationMessages = {
-      first_name: {
+      userAccount_firstName: {
         required: 'First name is required.',
         pattern: 'Invalid name format'
       },
-      last_name: {
+      userAccount_lastName: {
         required: 'Last name is required.',
         pattern: 'Invalid name format'
       },
-      email: {
+      userAccount_email: {
         required: 'Email is required.',
         email: 'Invalid email format'
       },
-      phoneNumber: {
+      userAccount_phoneNumber: {
         required: 'Phone number is required.'
+      },
+      userAccount_password: {
+        required: 'Password is required.',
+        notSame: 'Password not match.',
+        minlength: 'Minimum password length should be 6 characters.'
+      },
+      password_confirmation: {
+        notSame: 'Password not match.'
       }
     };
 
@@ -48,6 +60,25 @@ export class SignUpFormComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.form.valueChanges.subscribe(
+      () => this.displayMessage = this.genericValidator.processMessages(this.form)
+    );
+  }
+
+  onPasswordInput() {
+    if (this.form.hasError('notSame')) {
+      this.form.controls.password_confirmation.setErrors({
+        notSame: true,
+      });
+    } else {
+      this.form.controls.password_confirmation.setErrors(null);
+    }
+  }
+
+  checkPasswords(form: FormGroup) {
+    const pass = form.get('userAccount_password').value;
+    const confirmPass = form.get('password_confirmation').value;
+    return pass === confirmPass ? null : { notSame: true };
   }
 
   blur(): void {
