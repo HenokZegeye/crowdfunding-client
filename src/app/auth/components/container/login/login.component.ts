@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem(
             'userName', token.username
           );
-          /* this.router.navigate(['/main']); */
+          this.router.navigate(['/main/campaign']);
       },
       (err) => {
         if (err.status === 401) {

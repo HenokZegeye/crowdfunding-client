@@ -7,13 +7,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./outer-layout.component.scss']
 })
 export class OuterLayoutComponent implements OnInit {
-
+  username = 'Abebe K.';
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.username = localStorage.getItem('userName');
   }
 
   onLogout() {
+    localStorage.clear();
     this.router.navigate(['/']);
   }
 
