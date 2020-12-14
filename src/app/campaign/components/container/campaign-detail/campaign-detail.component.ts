@@ -11,6 +11,7 @@ export class CampaignDetailComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
     this.campaign = data;
+    debugger
   }
 
   ngOnInit(): void {

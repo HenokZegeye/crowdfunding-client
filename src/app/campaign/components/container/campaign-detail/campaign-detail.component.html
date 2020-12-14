@@ -37,7 +37,20 @@
       <ng-template pTemplate="header">
         <span>Funds</span>
       </ng-template>
-      <p>Campaign Funds posted here</p>
+      <div>
+        <div>
+          <span class="col-8 key">Total Donations:</span><span>{{campaign?.fundRecord[0]?.fundRecord_totalDonations}} ETB</span>
+        </div>
+        <div>
+          <span class="col-8 key">Total Available Fund:</span><span>{{campaign?.fundRecord[0]?.fundRecord_availableFund}} ETB</span>
+        </div>
+        <div>
+          <span class="col-8 key">Total Withdraw:</span><span>{{campaign?.fundRecord[0]?.fundRecord_totalWithdraw}} ETB</span>
+        </div>
+        <div>
+          <span class="col-8 key">Number of Donors:</span><span>{{campaign?.fundRecord[0]?.fundRecord_numberOfDonors}}</span>
+        </div>
+      </div>
     </p-tabPanel>
   </p-tabView>
 </div>
