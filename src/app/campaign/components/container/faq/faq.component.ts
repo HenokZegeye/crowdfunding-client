@@ -25,7 +25,6 @@ export class FaqComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.campaign._id;
-    debugger
     this.service.get(id).subscribe();
     this.createForm();
   }

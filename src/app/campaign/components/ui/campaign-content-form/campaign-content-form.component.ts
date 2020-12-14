@@ -53,6 +53,8 @@ export class CampaignContentFormComponent implements OnInit {
   }
 
   createForm() {
+    const originalDate = this.campaign?.campaign_endingDate;
+    const endDate = originalDate ? originalDate.substring(0, 10) : null;
     this.form = this.fb.group({
       id: null,
       title: [this.campaign?.campaign_title, Validators.required],
@@ -62,7 +64,7 @@ export class CampaignContentFormComponent implements OnInit {
       region: ['', Validators.required],
       city: ['', Validators.required],
       goal: [this.campaign?.campaign_fundGoal, Validators.required],
-      end_date: [this.campaign?.campaign_endingDate, Validators.required],
+      end_date: [endDate, Validators.required],
       story: [this.campaign?.campaign_story, Validators.required],
       cover_picture: ['', Validators.required]
     });
