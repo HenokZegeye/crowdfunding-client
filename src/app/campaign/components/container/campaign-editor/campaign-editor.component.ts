@@ -7,6 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CampaignEditorComponent implements OnInit {
   @Input() campaign;
+  categories: any[] = [
+    'Medicine',
+    'School'
+  ];
 
   constructor() {
   }

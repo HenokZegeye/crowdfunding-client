@@ -2,8 +2,7 @@
   <mat-card *ngIf="!noHeader" id="header-card">
     <div class="row">
       <p class="col">Status</p>
-      <!-- <p class="col">{{campaign.campaign_approval?.statusType}}</p> -->
-      <p class="col">OPEN</p>
+      <p class="col">{{campaign?.campaignApproval[0]?.campaignApproval_status|uppercase}}</p>
     </div>
   </mat-card>
   <mat-card>
@@ -23,8 +22,8 @@
           <mat-progress-bar style="height: 20px;" mode="determinate" [value]="campaign.progress_percentage">
           </mat-progress-bar>
         </div>
-        <div class="col">
-          {{campaign.progress_percentage}}%
+        <div class="col" *ngIf="campaign?.fundRecord">
+          {{campaign?.fundRecord[0].fundRecord_raisedPercentage}}%
         </div>
       </div>
       <div class="row container">

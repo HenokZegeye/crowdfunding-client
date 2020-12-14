@@ -11,7 +11,7 @@ export class CampaignContentFormComponent implements OnInit {
   @Output() formSubmit = new EventEmitter<any>();
   @Output() formClose = new EventEmitter<void>();
   @Input() campaign;
-  categories;
+  @Input() categories;
 
   form: FormGroup;
   displayMessage: { [key: string]: string } = {};

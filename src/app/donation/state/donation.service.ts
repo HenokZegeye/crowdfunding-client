@@ -12,7 +12,7 @@ export class DonationService {
   constructor(private http: HttpClient, private utilService: UtilService) { }
 
   donate(campaignId, data) {
-    const url = `${environment.apiUrl}/donate/${campaignId}`;
+    const url = `${environment.apiUrl}/paymentTransfer/donate/${campaignId}`;
     return this.http.post(url, data)
       .pipe(
         tap((result: any) => {
