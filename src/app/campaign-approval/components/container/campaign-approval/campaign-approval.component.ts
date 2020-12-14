@@ -18,7 +18,8 @@ export class CampaignApprovalComponent implements OnInit {
   ];
 
   tableActions = [
-    { icon: 'edit', color: 'warn', tooltip: 'Edit'}
+    { icon: 'check_circle_outline', color: 'primary', tooltip: 'Approve'},
+    { icon: 'thumb_down', color: 'warn', tooltip: 'Decline'}
   ];
 
   campaigns$: Observable<any[]> = this.query.selectAll();
@@ -33,5 +34,7 @@ export class CampaignApprovalComponent implements OnInit {
   onClick(event) {
 
   }
+
+
 
 }
