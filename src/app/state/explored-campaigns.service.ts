@@ -14,7 +14,7 @@ export class ExploredCampaignsService {
 
 
   getCampaigns(category) {
-    const url = `${environment.apiUrl}/campaigns`;
+    const url = `${environment.apiUrl}/campaigns/category/${category}`;
     return this.http.get<any[]>(url)
       .pipe(
         tap((result: any) => {

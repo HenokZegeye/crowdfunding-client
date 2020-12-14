@@ -8,12 +8,12 @@
           <input
             matInput
             placeholder="Enter your email address"
-            formControlName="email"
+            formControlName="userAccount_email"
             required
             (blur)="blur()"
           />
           <mat-icon matSuffix>email</mat-icon>
-          <mat-error *ngIf="displayMessage.email">{{ displayMessage.email }}</mat-error>
+          <mat-error *ngIf="displayMessage.userAccount_email">{{ displayMessage.userAccount_email }}</mat-error>
         </mat-form-field>
       </div>
       <div>
@@ -23,7 +23,7 @@
             matInput
             [type]="hide ? 'password' : 'text'"
             required
-            formControlName="password"
+            formControlName="userAccount_password"
             (blur)="blur()"
           />
           <button
@@ -38,7 +38,7 @@
               hide ? "visibility_off" : "visibility"
             }}</mat-icon>
           </button>
-          <mat-error *ngIf="displayMessage.password">{{ displayMessage.password }}</mat-error>
+          <mat-error *ngIf="displayMessage.userAccount_password">{{ displayMessage.userAccount_password }}</mat-error>
         </mat-form-field>
       </div>
       <div>

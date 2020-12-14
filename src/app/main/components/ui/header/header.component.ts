@@ -18,10 +18,10 @@ export class HeaderComponent implements OnInit {
   selectedCategory;
 
   categories: any[] = [
-    { name: 'Medical', value: 'medical'},
-    { name: 'Education', value: 'education'},
-    { name: 'Charity', value: 'charity'},
-    { name: 'Memorial', value: 'memorial'}
+    {name: 'Medicine'},
+    {name: 'Education'},
+    {name: 'Charity'},
+    {name: 'Memorial'}
   ];
 
   constructor() { }
@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onExplore(event) {
-    this.explore.emit(event.value);
+    this.explore.emit(event.name);
   }
 
   onToggle(): void {

@@ -18,7 +18,7 @@ export class ExploredCampaignsComponent implements OnInit {
     this.route.params.subscribe(param => {
       this.category = param.category;
       this.service.getCampaigns(this.category).subscribe(res => {
-        this.campaigns = res;
+        this.campaigns = res.campaign;
       });
       //Fetch campaign using category
     });

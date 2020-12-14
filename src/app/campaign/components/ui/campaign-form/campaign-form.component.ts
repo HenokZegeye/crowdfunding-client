@@ -14,7 +14,9 @@ export class CampaignFormComponent implements OnInit {
   selectedFile: File;
   categories: any[] = [
     'Medicine',
-    'School'
+    'Education',
+    'Charity',
+    'Memorial'
   ];
 
   form: FormGroup;

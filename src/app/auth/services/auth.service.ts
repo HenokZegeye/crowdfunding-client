@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(value): Observable<any> {
-    const url = `${environment.apiUrl}/sis_core/sign_in`;
+    const url = `${environment.apiUrl}/userAccount/signin`;
     return this.http.post(url, value);
   }
 

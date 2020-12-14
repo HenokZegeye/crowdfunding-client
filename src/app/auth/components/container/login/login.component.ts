@@ -21,18 +21,13 @@ export class LoginComponent implements OnInit {
   onLogin(value) {
     this.service.login(value).subscribe(
       (res) => {
-        if (res.success) {
-          const token = this.decodeToken(res.jwt);
-          localStorage.setItem('userToken', res.jwt);
+          const token = this.decodeToken(res.signInToken);
+          localStorage.setItem('userToken', res.signInToken);
+          localStorage.setItem('accountType', token.accountType);
           localStorage.setItem(
-            'userName',
-            `${token.first_name} ${token.middle_name}`
+            'userName', token.username
           );
-          localStorage.setItem('userId', token.id);
-          this.router.navigate(['/main']);
-        } else {
-          this.utilService.showMessage('error','Error', 'Invalid login credentials. Please try again.');
-        }
+          /* this.router.navigate(['/main']); */
       },
       (err) => {
         if (err.status === 401) {

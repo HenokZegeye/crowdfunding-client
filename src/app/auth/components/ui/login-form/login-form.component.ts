@@ -19,16 +19,16 @@ export class LoginFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      userAccount_email: ['', [Validators.required, Validators.email]],
+      userAccount_password: ['', [Validators.required, Validators.minLength(6)]]
     });
 
     this.validationMessages = {
-      email: {
+      userAccount_email: {
         required: 'Email is required.',
         email: 'Invalid email format.'
       },
-      password: {
+      userAccount_password: {
         required: 'Password is required.',
         minlength: 'Password should be more than 6 characters.'
       }
