@@ -2,11 +2,18 @@
   <mat-card *ngIf="!noHeader" id="header-card">
     <div class="row">
       <p class="col">Status</p>
-      <p class="col">{{campaign?.campaignApproval[0]?.campaignApproval_status|uppercase}}</p>
+      <p class="col" *ngIf="campaign?.campaignApproval">{{campaign?.campaignApproval[0]?.campaignApproval_status|uppercase}}</p>
     </div>
   </mat-card>
   <mat-card>
-    <img mat-card-image height="200px"
+    <img
+      *ngIf="campaign.photo"
+      src="../../../../assets/family-desktop.jpg"
+      id="logo"
+      alt="logo"
+      width="300px"
+    />
+      <img *ngIf="!campaign.photo" mat-card-image height="200px"
       [src]="photoPath"
       alt="Campaign Cover Picture">
     <mat-card-content>

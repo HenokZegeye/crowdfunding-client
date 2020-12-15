@@ -27,7 +27,7 @@ export class CampaignApprovalService {
 
   approveCampaign(id) {
     const url = `${environment.apiUrl}/campaigns/status/${id}/approve`;
-    return this.http.post(url, {})
+    return this.http.patch(url, {})
       .pipe(
         tap((result: any) => {
           console.log('Approved');
@@ -39,7 +39,7 @@ export class CampaignApprovalService {
 
   declineCampaign(id) {
     const url = `${environment.apiUrl}/campaigns/status/${id}/reject`;
-    return this.http.post(url, {})
+    return this.http.patch(url, {})
       .pipe(
         tap((result: any) => {
           console.log('Rejected');
