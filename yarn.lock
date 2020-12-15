@@ -6008,6 +6008,13 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
+ng-block-ui@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/ng-block-ui/-/ng-block-ui-3.0.2.tgz#1ba6d72866524bf000218564c64f2dee29026631"
+  integrity sha512-EP3IXP8WSoKQOAwunf/v77aydcBCSLkEm5K8duRMSXFsnrcTdNqUiaLDKCf9U3COHY52IVBJcLb9PGhMBCWVSA==
+  dependencies:
+    tslib "^1.10.0"
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
