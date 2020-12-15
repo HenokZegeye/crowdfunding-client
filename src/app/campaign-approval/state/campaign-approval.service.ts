@@ -14,29 +14,39 @@ export class CampaignApprovalService {
 
 
   getUnapprovedCampaign() {
-    const url = `${environment.apiUrl}/campaign/unapproved`;
+    const url = `${environment.apiUrl}/campaigns/status/waiting`;
     return this.http.get<any[]>(url)
       .pipe(
         tap((result: any) => {
-          if (result.success) {
-            this.campaignApprovalStore.set(result.data);
-          } else {
-            const errors = result.errors;
-            const errorMessage = errors.join();
-            this.utilService.showMessage('error', 'Error', errorMessage);
-          }
+            this.campaignApprovalStore.set(result.campaign);
         }, error => {
           this.utilService.showMessage('error', 'Error', error.error.errors.join());
         })
       );
   }
 
-  approveCampaign() {
-
+  approveCampaign(id) {
+    const url = `${environment.apiUrl}/campaigns/status/${id}/approve`;
+    return this.http.post(url, {})
+      .pipe(
+        tap((result: any) => {
+          console.log('Approved');
+        }, error => {
+          this.utilService.showMessage('error', 'Error', error.error.errors.join());
+        })
+      )
   }
 
-  declineCampaign() {
-
+  declineCampaign(id) {
+    const url = `${environment.apiUrl}/campaigns/status/${id}/reject`;
+    return this.http.post(url, {})
+      .pipe(
+        tap((result: any) => {
+          console.log('Rejected');
+        }, error => {
+          this.utilService.showMessage('error', 'Error', error.error.errors.join());
+        })
+      )
   }
 
 }

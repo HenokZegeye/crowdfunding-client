@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.isLogggedIn = localStorage.getItem('userToken') ? true : false;
   }
 
   onExplore(event) {

@@ -14,7 +14,7 @@ export class CampaignApprovalComponent implements OnInit {
     { name: 'campaign_title', label: 'Title' },
     { name: 'campaign_category', label: 'Category' },
     { name: 'campaign_fundGoal', label: 'Fund Goal' },
-    { name: 'campaign_endingDate', label: 'Ending Date' }
+    { name: 'campaign_endingDate', label: 'Ending Date', type: 'date' }
   ];
 
   tableActions = [
@@ -32,7 +32,26 @@ export class CampaignApprovalComponent implements OnInit {
   }
 
   onClick(event) {
+    switch (event.type) {
+      case 'check_circle_outline':
+        this.onApprove(event.item);
+        break;
+      case 'check_circle_outline':
+        this.onDecline(event.item);
+        break;
+      default:
+        break;
+    }
+  }
 
+  onApprove(item) {
+    const id = item._id;
+    this.service.approveCampaign(id).subscribe();
+  }
+
+  onDecline(item) {
+    const id = item._id;
+    this.service.declineCampaign(id).subscribe();
   }
 
 
